@@ -22,3 +22,15 @@ C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\De
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.CoreCompileInputs.cache
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.exe
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.pdb
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\bin\Debug\Database1.mdf
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\bin\Debug\Database1_log.ldf
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\bin\Debug\Trust Your Locals.exe.config
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\bin\Debug\Trust Your Locals.exe
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\bin\Debug\Trust Your Locals.pdb
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.csprojAssemblyReference.cache
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust_Your_Locals.Form1.resources
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust_Your_Locals.Properties.Resources.resources
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.GenerateResource.cache
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.CoreCompileInputs.cache
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.exe
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.pdb

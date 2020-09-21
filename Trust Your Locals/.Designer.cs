@@ -98,7 +98,7 @@ namespace Trust_Your_Locals
         //This Function connects to local database on button press and populates the combo box
             try {
                 // INSERT YOUR OWN CONNECTION STRING
-                string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Programavimas\\VU\\2 Kursas\\PSI\\test\\Trust Your Locals\\Trust Your Locals\\Database1.mdf;Integrated Security=True";
+                string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Kestas\\Desktop\\2KURSAS\\PSI\\IProgramosPhase\\Trust Your Locals\\Database1.mdf;Integrated Security=True";
                 SqlConnection conn = new SqlConnection(connectionString);
                 string query = "SELECT DISTINCT Name FROM Products";
                 conn.Open();
