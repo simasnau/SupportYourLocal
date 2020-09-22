@@ -33,7 +33,34 @@
               <Mapping SourceColumn="Price" DataSetColumn="Price" />
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="cn (Settings)" DbObjectName="dbo.Products" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Name
+FROM     Products</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="cn (Settings)" DbObjectName="dbo.Products" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Shop ID], Price, Name
+FROM     Products</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="cn (Settings)" DbObjectName="dbo.Products" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Shop ID], Price, Name FROM dbo.Products</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SellerTableAdapter" GeneratorDataComponentClassName="SellerTableAdapter" Name="Seller" UserDataComponentName="SellerTableAdapter">
             <MainSource>
@@ -95,7 +122,7 @@ SELECT ID, [Name:], [Adress:] FROM Seller WHERE (ID = @ID)</CommandText>
   <xs:element name="Database1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Database1DataSet" msprop:Generator_UserDSName="Database1DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Shop_x0020_ID" msprop:Generator_ColumnVarNameInTable="columnShop_ID" msprop:Generator_ColumnPropNameInRow="Shop_ID" msprop:Generator_ColumnPropNameInTable="Shop_IDColumn" msprop:Generator_UserColumnName="Shop ID" type="xs:int" />
@@ -110,7 +137,7 @@ SELECT ID, [Name:], [Adress:] FROM Seller WHERE (ID = @ID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Seller" msprop:Generator_TableClassName="SellerDataTable" msprop:Generator_TableVarName="tableSeller" msprop:Generator_TablePropName="Seller" msprop:Generator_RowDeletingName="SellerRowDeleting" msprop:Generator_RowChangingName="SellerRowChanging" msprop:Generator_RowEvHandlerName="SellerRowChangeEventHandler" msprop:Generator_RowDeletedName="SellerRowDeleted" msprop:Generator_UserTableName="Seller" msprop:Generator_RowChangedName="SellerRowChanged" msprop:Generator_RowEvArgName="SellerRowChangeEvent" msprop:Generator_RowClassName="SellerRow">
+        <xs:element name="Seller" msprop:Generator_TableClassName="SellerDataTable" msprop:Generator_TableVarName="tableSeller" msprop:Generator_RowChangedName="SellerRowChanged" msprop:Generator_TablePropName="Seller" msprop:Generator_RowDeletingName="SellerRowDeleting" msprop:Generator_RowChangingName="SellerRowChanging" msprop:Generator_RowEvHandlerName="SellerRowChangeEventHandler" msprop:Generator_RowDeletedName="SellerRowDeleted" msprop:Generator_RowClassName="SellerRow" msprop:Generator_UserTableName="Seller" msprop:Generator_RowEvArgName="SellerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -144,7 +171,7 @@ SELECT ID, [Name:], [Adress:] FROM Seller WHERE (ID = @ID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Products__Shop_x0020_I__25869641" msdata:parent="Seller" msdata:child="Products" msdata:parentkey="ID" msdata:childkey="Shop_x0020_ID" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="FK__Products__Shop I__25869641" msprop:Generator_RelationVarName="relationFK__Products__Shop_I__25869641" msprop:Generator_UserParentTable="Seller" msprop:Generator_ParentPropName="SellerRow" />
+      <msdata:Relationship name="FK__Products__Shop_x0020_I__25869641" msdata:parent="Seller" msdata:child="Products" msdata:parentkey="ID" msdata:childkey="Shop_x0020_ID" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="FK__Products__Shop I__25869641" msprop:Generator_ParentPropName="SellerRow" msprop:Generator_RelationVarName="relationFK__Products__Shop_I__25869641" msprop:Generator_UserParentTable="Seller" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
