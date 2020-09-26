@@ -22,3 +22,15 @@ C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\De
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.CoreCompileInputs.cache
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.exe
 C:\Programavimas\VU\2 Kursas\PSI\test\Trust Your Locals\Trust Your Locals\obj\Debug\Trust Your Locals.pdb
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\bin\Debug\Database1.mdf
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\bin\Debug\Database1_log.ldf
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\bin\Debug\Trust Your Locals.exe.config
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\bin\Debug\Trust Your Locals.exe
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\bin\Debug\Trust Your Locals.pdb
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust Your Locals.csprojAssemblyReference.cache
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust_Your_Locals.Form1.resources
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust_Your_Locals.Properties.Resources.resources
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.GenerateResource.cache
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.CoreCompileInputs.cache
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust Your Locals.exe
+C:\Programavimas\VU\2 Kursas\PSI\SupportYourLocal\Trust Your Locals\obj\Debug\Trust Your Locals.pdb
