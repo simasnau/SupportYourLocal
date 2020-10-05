@@ -33,3 +33,4 @@ C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\
 C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.csproj.CoreCompileInputs.cache
 C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.exe
 C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.pdb
+C:\Users\Kestas\Desktop\2KURSAS\PSI\IProgramosPhase\Trust Your Locals\obj\Debug\Trust Your Locals.csprojAssemblyReference.cache
