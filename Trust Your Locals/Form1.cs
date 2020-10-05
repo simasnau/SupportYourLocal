@@ -24,7 +24,7 @@ namespace Trust_Your_Locals
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataDisplay.getAdress(txt_pavadinimas, e);
+            dataDisplay.getAdress(textBox:txt_pavadinimas, eArgs:e);
         }
 
         private void pavadinimas_button_Click(object sender, EventArgs e)
