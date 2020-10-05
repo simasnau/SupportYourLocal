@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Trust_Your_Locals
@@ -16,6 +17,7 @@ namespace Trust_Your_Locals
             this.dgv = dgv;
         }
 
+        
         public void updateDataGridView()
         {
             string product = "'" + cb.SelectedValue.ToString() + "'";
@@ -27,17 +29,17 @@ namespace Trust_Your_Locals
             SqlDataAdapter da = new SqlDataAdapter(sqlQuery, SQLConnectionHandler.GetConnection());
             da.Fill(dt);
             dgv.DataSource = dt;
+
+
         }
 
-        public void getAdress(TextBox textBox, DataGridViewCellEventArgs e)
+        public void getAdress(TextBox textBox, DataGridViewCellEventArgs eArgs)
         {
             try
             {
-                if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                {
-                    dgv.CurrentRow.Selected = true;
-                    textBox.Text = dgv.Rows[e.RowIndex].Cells["Adress:"].FormattedValue.ToString();
-                }
+                dgv.CurrentRow.Selected = true;
+                textBox.Text = dgv.getSelectedCellAdress(eArgs);
+                
             }
             catch (ArgumentOutOfRangeException)
             { }

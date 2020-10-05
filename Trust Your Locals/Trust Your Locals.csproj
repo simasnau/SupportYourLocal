@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ComboBoxHandler.cs" />
     <Compile Include="DataDisplayClass.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

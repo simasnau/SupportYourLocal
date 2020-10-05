@@ -8,10 +8,10 @@ namespace Trust_Your_Locals
 {
     public class Product
     {
-        String name;
-        int shopID;
-        float price;
-        int productTypeID;
+        public String name { get; set;}
+        public int shopID { get; set; }
+        public float price { get; set; }
+        public int productTypeID { get; set; }
 
         Product (String name, int shopID, float price, int productTypeID)
         {
