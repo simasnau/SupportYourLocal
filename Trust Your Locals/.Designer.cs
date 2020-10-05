@@ -1,33 +1,23 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Data;
 using System.Windows.Forms;
+using System.Text;
+
 
 namespace Trust_Your_Locals
 {
     partial class Form1
     {
-        private Button button1;
-        private TextBox textBox1;
         private ComboBox comboBox1;
-        private Button button2;
-        private DataGridView dataGridView1;
-        private Database1DataSet database1DataSet;
-        private Database1DataSetTableAdapters.SellerTableAdapter sellerTableAdapter;
-        private Database1DataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private Database1DataSet database1DataSet1;
-        private BindingSource sellerBindingSource;
-        private BindingSource fKProductsShopI25869641BindingSource;
-        private BindingSource sellerBindingSource1;
-        private BindingSource productsBindingSource;
-        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn adressDataGridViewTextBoxColumn;
-        private Database1DataSet database1DataSet2;
-        private BindingSource productsBindingSource1;
-        private ToolStrip fillToolStrip;
-        private ToolStripButton fillToolStripButton;
+        private DataGridView dgv;
+        private SplitContainer splitContainer1;
+        private Button pavadinimas_button;
+        private Label label1;
+        private TextBox txt_pavadinimas;
+        private WebBrowser webBrowser1;
+        private Label label2;
+
 
 
         /// <summary>
@@ -55,344 +45,153 @@ namespace Trust_Your_Locals
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet2 = new Trust_Your_Locals.Database1DataSet();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new Trust_Your_Locals.Database1DataSet();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fKProductsShopI25869641BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sellerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet1 = new Trust_Your_Locals.Database1DataSet();
-            this.sellerTableAdapter = new Trust_Your_Locals.Database1DataSetTableAdapters.SellerTableAdapter();
-            this.productsTableAdapter = new Trust_Your_Locals.Database1DataSetTableAdapters.ProductsTableAdapter();
-            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKProductsShopI25869641BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
-            this.fillToolStrip.SuspendLayout();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pavadinimas_button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_pavadinimas = new System.Windows.Forms.TextBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.DataBindings.Add(new System.Windows.Forms.Binding("ContextMenuStrip", this.productsBindingSource1, "Name", true));
-            this.button1.Location = new System.Drawing.Point(339, 120);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Get Data";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // productsBindingSource1
-            // 
-            this.productsBindingSource1.DataMember = "Products";
-            this.productsBindingSource1.DataSource = this.database1DataSet2;
-            // 
-            // database1DataSet2
-            // 
-            this.database1DataSet2.DataSetName = "Database1DataSet";
-            this.database1DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(307, 58);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 33);
-            this.textBox1.TabIndex = 1;
             // 
             // comboBox1
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "Name", true));
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(99, 67);
+            this.comboBox1.Location = new System.Drawing.Point(240, 131);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 24);
+            this.comboBox1.Size = new System.Drawing.Size(162, 28);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // productsBindingSource
+            // dgv
             // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.database1DataSet;
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(14, 248);
+            this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.RowHeadersWidth = 62;
+            this.dgv.RowTemplate.Height = 28;
+            this.dgv.Size = new System.Drawing.Size(627, 431);
+            this.dgv.TabIndex = 5;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
-            // database1DataSet
+            // splitContainer1
             // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(647, 1);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // button2
+            // splitContainer1.Panel1
             // 
-            this.button2.AutoEllipsis = true;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(507, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 47);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Show marketplaces";
-            this.button2.UseVisualStyleBackColor = true;
+            this.splitContainer1.Panel1.Controls.Add(this.pavadinimas_button);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.txt_pavadinimas);
             // 
-            // dataGridView1
+            // splitContainer1.Panel2
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.adressDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sellerBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(99, 232);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(837, 217);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.splitContainer1.Panel2.Controls.Add(this.webBrowser1);
+            this.splitContainer1.Size = new System.Drawing.Size(1028, 699);
+            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.TabIndex = 6;
             // 
-            // iDDataGridViewTextBoxColumn
+            // pavadinimas_button
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 50;
+            this.pavadinimas_button.Location = new System.Drawing.Point(19, 261);
+            this.pavadinimas_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pavadinimas_button.Name = "pavadinimas_button";
+            this.pavadinimas_button.Size = new System.Drawing.Size(154, 72);
+            this.pavadinimas_button.TabIndex = 2;
+            this.pavadinimas_button.Text = "Search in maps";
+            this.pavadinimas_button.UseVisualStyleBackColor = true;
+            this.pavadinimas_button.Click += new System.EventHandler(this.pavadinimas_button_Click);
             // 
-            // nameDataGridViewTextBoxColumn
+            // label1
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name:";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name:";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 200;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(56, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Location:";
             // 
-            // adressDataGridViewTextBoxColumn
+            // txt_pavadinimas
             // 
-            this.adressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.adressDataGridViewTextBoxColumn.DataPropertyName = "Adress:";
-            this.adressDataGridViewTextBoxColumn.HeaderText = "Adress:";
-            this.adressDataGridViewTextBoxColumn.MinimumWidth = 50;
-            this.adressDataGridViewTextBoxColumn.Name = "adressDataGridViewTextBoxColumn";
-            this.adressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.adressDataGridViewTextBoxColumn.Width = 200;
+            this.txt_pavadinimas.Location = new System.Drawing.Point(19, 182);
+            this.txt_pavadinimas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_pavadinimas.Name = "txt_pavadinimas";
+            this.txt_pavadinimas.Size = new System.Drawing.Size(154, 26);
+            this.txt_pavadinimas.TabIndex = 0;
             // 
-            // sellerBindingSource1
+            // webBrowser1
             // 
-            this.sellerBindingSource1.DataMember = "Seller";
-            this.sellerBindingSource1.DataSource = this.database1DataSet;
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(22, 25);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(834, 699);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
-            // fKProductsShopI25869641BindingSource
+            // label2
             // 
-            this.fKProductsShopI25869641BindingSource.DataMember = "FK__Products__Shop I__25869641";
-            this.fKProductsShopI25869641BindingSource.DataSource = this.sellerBindingSource;
-            // 
-            // sellerBindingSource
-            // 
-            this.sellerBindingSource.DataMember = "Seller";
-            this.sellerBindingSource.DataSource = this.database1DataSet1;
-            // 
-            // database1DataSet1
-            // 
-            this.database1DataSet1.DataSetName = "Database1DataSet";
-            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sellerTableAdapter
-            // 
-            this.sellerTableAdapter.ClearBeforeFill = true;
-            // 
-            // productsTableAdapter
-            // 
-            this.productsTableAdapter.ClearBeforeFill = true;
-            // 
-            // fillToolStrip
-            // 
-            this.fillToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillToolStripButton});
-            this.fillToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillToolStrip.Name = "fillToolStrip";
-            this.fillToolStrip.Size = new System.Drawing.Size(112, 25);
-            this.fillToolStrip.TabIndex = 5;
-            this.fillToolStrip.Text = "fillToolStrip";
-            // 
-            // fillToolStripButton
-            // 
-            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillToolStripButton.Name = "fillToolStripButton";
-            this.fillToolStripButton.Size = new System.Drawing.Size(32, 22);
-            this.fillToolStripButton.Text = "Fill";
-            this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click_1);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(196, 190);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(252, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Press on row to search for location";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 521);
-            this.Controls.Add(this.fillToolStrip);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1678, 692);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKProductsShopI25869641BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
-            this.fillToolStrip.ResumeLayout(false);
-            this.fillToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-        //When selected item changes, textBox changes.
-            textBox1.Text = comboBox1.SelectedValue.ToString();
-        }
-
-        private void Button1_Click(object sender, System.EventArgs e) { 
-        //This Function connects to local database on button press and populates the combo box
-            try {
-                // INSERT YOUR OWN CONNECTION STRING
-                string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Kestas\\Desktop\\2KURSAS\\PSI\\IProgramosPhase\\Trust Your Locals\\Database1.mdf;Integrated Security=True";
-                SqlConnection conn = new SqlConnection(connectionString);
-                string query = "SELECT DISTINCT Name FROM Products";
-                conn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "Products");
-                comboBox1.DisplayMember = "Name";
-                comboBox1.ValueMember = "Name";
-                comboBox1.DataSource = ds.Tables["Products"];
-
-            }
-            catch (SqlException a) {
-                Console.WriteLine(a);
-            }
-            
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            // TODO: This line of code loads data into the 'database1DataSet2.Products' table. You can move, or remove it, as needed.
-            try
-            {
-                this.productsTableAdapter.Fill(this.database1DataSet2.Products);
-            }
-            catch (Exception ex) { }
-                // TODO: This line of code loads data into the 'database1DataSet1.Products' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'database1DataSet1.Seller' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'database1DataSet.Products' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'database1DataSet.Products' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'database1DataSet.Seller' table. You can move, or remove it, as needed.
-
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.productsTableAdapter.FillBy(this.database1DataSet.Products);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.productsTableAdapter.FillBy1(this.database1DataSet.Products);
-            }
-            catch (System.Exception ex)
-            {
-          //      System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy2ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.productsTableAdapter.FillBy2(this.database1DataSet.Products);
-            }
-            catch (System.Exception ex)
-            {
-          //      System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sellerTableAdapter.Fill(this.database1DataSet.Seller);
-            }
-            catch (System.Exception ex)
-            {
-          //      System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void fillToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sellerTableAdapter.Fill(this.database1DataSet.Seller);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
 
         }
     }
 }
+
 
