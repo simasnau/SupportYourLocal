@@ -11,9 +11,6 @@ namespace Trust_Your_Locals
 		const string connectionString= "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf;Integrated Security=True";
 		static SqlConnection conn;
 
-		static SQLConnectionHandler()
-		{
-		}
 		public static void MakeConnection()
         {
 			conn = new SqlConnection(connectionString);
