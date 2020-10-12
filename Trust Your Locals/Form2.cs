@@ -14,12 +14,22 @@ namespace Trust_Your_Locals
     {
         public Form2()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            ComboBoxHandler.HandleComboBoxWithoutAll(comboBox1);
         }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+
     }
 }

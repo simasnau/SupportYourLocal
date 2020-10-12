@@ -12,13 +12,14 @@ namespace Trust_Your_Locals
         private DataDisplayClass dataDisplay;
         public Form1()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             dataDisplay = new DataDisplayClass(comboBox1, dgv);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ComboBoxHandler cbHandler = new ComboBoxHandler(comboBox1);
+          ComboBoxHandler.HandleComboBox(comboBox1);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +79,14 @@ namespace Trust_Your_Locals
             file.Write("[]]");
 
             file.Close();
+        }
+
+        private void navigate_button_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form2 form2 = new Form2();
+            form2.Show();
+
         }
     }
 }

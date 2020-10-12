@@ -53,6 +53,7 @@ namespace Trust_Your_Locals
             this.txt_pavadinimas = new System.Windows.Forms.TextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
+            this.navigate_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -66,10 +67,10 @@ namespace Trust_Your_Locals
             | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(240, 131);
+            this.comboBox1.Location = new System.Drawing.Point(213, 105);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 28);
+            this.comboBox1.Size = new System.Drawing.Size(144, 24);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -81,14 +82,14 @@ namespace Trust_Your_Locals
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(14, 248);
+            this.dgv.Location = new System.Drawing.Point(12, 198);
             this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowHeadersWidth = 62;
             this.dgv.RowTemplate.Height = 28;
-            this.dgv.Size = new System.Drawing.Size(627, 431);
+            this.dgv.Size = new System.Drawing.Size(557, 345);
             this.dgv.TabIndex = 5;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
@@ -97,8 +98,7 @@ namespace Trust_Your_Locals
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(647, 1);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.splitContainer1.Location = new System.Drawing.Point(575, 1);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -110,16 +110,15 @@ namespace Trust_Your_Locals
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.webBrowser1);
-            this.splitContainer1.Size = new System.Drawing.Size(1028, 699);
-            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.Size = new System.Drawing.Size(914, 559);
+            this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 6;
             // 
             // pavadinimas_button
             // 
-            this.pavadinimas_button.Location = new System.Drawing.Point(19, 261);
-            this.pavadinimas_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pavadinimas_button.Location = new System.Drawing.Point(17, 209);
             this.pavadinimas_button.Name = "pavadinimas_button";
-            this.pavadinimas_button.Size = new System.Drawing.Size(154, 72);
+            this.pavadinimas_button.Size = new System.Drawing.Size(137, 58);
             this.pavadinimas_button.TabIndex = 2;
             this.pavadinimas_button.Text = "Search in maps";
             this.pavadinimas_button.UseVisualStyleBackColor = true;
@@ -128,55 +127,62 @@ namespace Trust_Your_Locals
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 130);
+            this.label1.Location = new System.Drawing.Point(50, 104);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Location:";
             // 
             // txt_pavadinimas
             // 
-            this.txt_pavadinimas.Location = new System.Drawing.Point(19, 182);
-            this.txt_pavadinimas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_pavadinimas.Location = new System.Drawing.Point(17, 146);
             this.txt_pavadinimas.Name = "txt_pavadinimas";
-            this.txt_pavadinimas.Size = new System.Drawing.Size(154, 26);
+            this.txt_pavadinimas.Size = new System.Drawing.Size(137, 22);
             this.txt_pavadinimas.TabIndex = 0;
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(22, 25);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(834, 699);
+            this.webBrowser1.Size = new System.Drawing.Size(742, 559);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 190);
+            this.label2.Location = new System.Drawing.Point(174, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 20);
+            this.label2.Size = new System.Drawing.Size(227, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Press on row to search for location";
             // 
+            // navigate_button
+            // 
+            this.navigate_button.Location = new System.Drawing.Point(15, 15);
+            this.navigate_button.Name = "navigate_button";
+            this.navigate_button.Size = new System.Drawing.Size(117, 43);
+            this.navigate_button.TabIndex = 8;
+            this.navigate_button.Text = "Add your item to sell";
+            this.navigate_button.UseVisualStyleBackColor = true;
+            this.navigate_button.Click += new System.EventHandler(this.navigate_button_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1678, 692);
+            this.ClientSize = new System.Drawing.Size(1492, 554);
+            this.Controls.Add(this.navigate_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.FormClosed += Form1_FormClosed;
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -197,6 +203,8 @@ namespace Trust_Your_Locals
         {
 
         }
+
+        private Button navigate_button;
     }
 }
 
