@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using System.Text;
-
+using System.IO;
 
 namespace Trust_Your_Locals
 {
@@ -176,6 +176,7 @@ namespace Trust_Your_Locals
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += Form1_FormClosed;
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -185,6 +186,11 @@ namespace Trust_Your_Locals
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            File.Delete("locations.js");
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)

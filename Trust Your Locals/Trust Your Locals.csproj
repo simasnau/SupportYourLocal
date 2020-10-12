@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API_keys.cs" />
     <Compile Include="ComboBoxHandler.cs" />
     <Compile Include="DataDisplayClass.cs" />
     <Compile Include="ExtensionMethods.cs" />
@@ -78,6 +79,7 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="MapHandler.cs" />
+    <Compile Include="Pin.cs"/>
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

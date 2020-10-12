@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.IO;
+using System.Net;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Trust_Your_Locals
 {
@@ -29,11 +33,53 @@ namespace Trust_Your_Locals
 
         private void pavadinimas_button_Click(object sender, EventArgs e)
         {
+            WriteCoordsToFile();
             MapHandler mapHandler = new MapHandler(webBrowser1);
             mapHandler.showAdress(txt_pavadinimas.Text);
-            
         }
 
 
+        private void WriteCoordsToFile()
+        {
+            string requestUri;
+            WebRequest request;
+            WebResponse response;
+            ArrayList pinList= new ArrayList();
+            ArrayList adressList = new ArrayList();
+            StreamWriter file = new StreamWriter("locations.js");
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                string name=row.Cells["Name:"].Value.ToString();
+                string adress = row.Cells["Adress:"].Value.ToString();
+
+                if (!adressList.Contains(adress))
+                {
+                    adressList.Add(adress);
+                    requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false", Uri.EscapeDataString(adress), API_keys.api_key);
+                    request = WebRequest.Create(requestUri);
+                    response = request.GetResponse();
+
+                    XDocument xdoc = XDocument.Load(response.GetResponseStream());
+                    XElement locationElement = xdoc.Element("GeocodeResponse").Element("result").Element("geometry").Element("location");
+                    XElement lat = locationElement.Element("lat");
+                    XElement lng = locationElement.Element("lng");
+                    Pin pin = new Pin(name, lat.Value, lng.Value);
+                    pinList.Add(pin);
+                }
+                
+                
+            }
+            file.Write("locations=[");
+            foreach(Pin pin in pinList)
+            {
+                file.Write("[\""+pin.name+"\","+pin.lat+","+pin.lng+"],");
+            }
+            file.Write("[]]");
+
+            file.Close();
+        }
     }
 }
+
+
