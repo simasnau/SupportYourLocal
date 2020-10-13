@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Xamarin.Forms.Maps;
+//using Xamarin.Forms.Maps;
 
 namespace Trust_Your_Locals
 {

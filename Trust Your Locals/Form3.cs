@@ -13,6 +13,9 @@ namespace Trust_Your_Locals
 {
     public partial class Form3 : Form
     {
+
+        int ix = 0;
+
         public Form3()
         {
             InitializeComponent();
@@ -66,26 +69,37 @@ namespace Trust_Your_Locals
         }
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            for (int ix = 0; ix < checkedListBox1.Items.Count; ++ix)
+            for (ix = 0; ix < checkedListBox1.Items.Count; ++ix)
                 if (ix != e.Index) checkedListBox1.SetItemChecked(ix, false);
+        }
+        
+        private void addRating(String name, String comment, int star)
+        {
+
         }
         
         private void button2_Click(object sender, EventArgs e)
         {
-          //  checkedListBox1_ItemCheck chbox = new checkedListBox1_ItemCheck();
-            //if (chbox.ix != 0)
-            //{
-            //    MessageBox.Show("Rating added");
+            
+            if ( checkedListBox1.CheckedItems.Count != 0)
+            {//string s;
+                
+               // String m = comboBox2.SelectedItem.ToString();
+               // MessageBox.Show(m); 
+                for (int i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
+                {
+                    if (checkedListBox1.GetItemChecked(i))
+                    {
+                      //  addRating( , , i);
+                    }
+                }
 
-
-
-            //    Close();
-            //}
-            //else
-            //{ MessageBox.Show("Please choose a rating"); }
-            //// DialogResult dr = MessageBox.Show("Rating added");
-            //Form3 Form_3 = new Form3();
-            //Close();
+                Close();
+            }
+            else
+            { MessageBox.Show("Please choose a rating"); }
+            // DialogResult dr = MessageBox.Show("Rating added");
+            Form3 Form_3 = new Form3();
 
         }
     }
