@@ -84,8 +84,8 @@ namespace Trust_Your_Locals
         private void navigate_button_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Form2 form2 = new Form2();
-            form2.Show();
+            Form3 form3 = new Form3();
+            form3.Show();
 
         }
     }
