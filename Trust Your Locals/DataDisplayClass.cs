@@ -24,7 +24,7 @@ namespace Trust_Your_Locals
         public void updateDataGridView()
         {
             string product = "'" + cb.SelectedValue.ToString() + "'";
-            string sqlQuery = "SELECT Name, Price, \"Name:\", \"Adress:\" FROM Products, Seller WHERE \"Shop ID\"=ID";
+            string sqlQuery = "SELECT Name, Price, \"Seller name\", \"Adress\" FROM Products, Seller WHERE \"Shop ID\"=ID";
             if (product != "'Visi'") sqlQuery += " AND Name=" + product;
 
             DataTable dt = new DataTable();

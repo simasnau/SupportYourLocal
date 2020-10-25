@@ -51,8 +51,8 @@ namespace Trust_Your_Locals
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                string name=row.Cells["Name:"].Value.ToString();
-                string adress = row.Cells["Adress:"].Value.ToString();
+                string name=row.Cells["Seller name"].Value.ToString();
+                string adress = row.Cells["Adress"].Value.ToString();
 
                 if (!adressList.Contains(adress))
                 {
@@ -87,6 +87,12 @@ namespace Trust_Your_Locals
             Form3 form3 = new Form3();
             form3.Show();
 
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            PlaceOrderForm placeOrderForm = new PlaceOrderForm();
+            placeOrderForm.Show();
         }
     }
 }

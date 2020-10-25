@@ -1,1 +1,1 @@
-locations=[["Jono ukis",54.8972329,23.8891123],[]]
+locations=[["Preriju Ukis",54.9021903,23.9203795],["Jono Ukis",54.6878290,25.3178238],["Naujamiescio uzkandine",54.6730690,25.2783410],[]]
