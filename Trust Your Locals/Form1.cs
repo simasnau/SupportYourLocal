@@ -36,8 +36,8 @@ namespace Trust_Your_Locals
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 Form_3 = new Form3();
-            Form_3.ShowDialog();
+            RatingForm form_Rate = new RatingForm();
+            form_Rate.ShowDialog();
         }
     }
 }
