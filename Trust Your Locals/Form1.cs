@@ -91,7 +91,7 @@ namespace Trust_Your_Locals
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            PlaceOrderForm placeOrderForm = new PlaceOrderForm();
+            PlaceOrderForm placeOrderForm = new PlaceOrderForm(dgv);
             placeOrderForm.Show();
         }
     }

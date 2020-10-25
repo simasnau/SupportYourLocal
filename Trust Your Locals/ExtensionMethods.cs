@@ -12,7 +12,7 @@ namespace Trust_Your_Locals
         public static string getSelectedCellAdress(this DataGridView dgv, DataGridViewCellEventArgs eArgs)
         {
             if (dgv.Rows[eArgs.RowIndex].Cells[eArgs.ColumnIndex].Value != null)
-                return dgv.Rows[eArgs.RowIndex].Cells["Adress:"].FormattedValue.ToString();
+                return dgv.Rows[eArgs.RowIndex].Cells["Adress"].FormattedValue.ToString();
             else return null;
         }
 
