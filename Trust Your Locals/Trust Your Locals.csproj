@@ -126,6 +126,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RatingForm.resx">
       <DependentUpon>RatingForm.cs</DependentUpon>
     </EmbeddedResource>
