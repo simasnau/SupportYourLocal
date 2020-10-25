@@ -387,5 +387,6 @@ Temporary Items
 App.config
 Database1DataSet.Designer.cs
 config.js
+locations.js
 API_keys.cs
 !Resources.resx

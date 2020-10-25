@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Trust_Your_Locals
@@ -18,19 +16,9 @@ namespace Trust_Your_Locals
         {
             try
             {
-                if (adresas != string.Empty)
-                {
-                    StringBuilder queryaddress = new StringBuilder();
-                    queryaddress.Append("http://maps.google.com/maps/search/");
-                    queryaddress.Append(adresas + "," + "+");
-                    webBrowser.Navigate(queryaddress.ToString());                 
-                }
-                else {
-                    string path = Directory.GetCurrentDirectory();
-                    webBrowser.Navigate(new System.Uri(path + "\\index.html"));
+                string path = Directory.GetCurrentDirectory();
+                webBrowser.Navigate(new Uri(path + "\\index.html"));
                     
-                }
-
             }
             catch (Exception ex)
             {
