@@ -54,6 +54,7 @@ namespace Trust_Your_Locals
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.navigate_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -164,17 +165,28 @@ namespace Trust_Your_Locals
             // 
             this.navigate_button.Location = new System.Drawing.Point(15, 15);
             this.navigate_button.Name = "navigate_button";
-            this.navigate_button.Size = new System.Drawing.Size(117, 43);
+            this.navigate_button.Size = new System.Drawing.Size(87, 28);
             this.navigate_button.TabIndex = 8;
-            this.navigate_button.Text = "Add your item to sell";
+            this.navigate_button.Text = "Log in";
             this.navigate_button.UseVisualStyleBackColor = true;
             this.navigate_button.Click += new System.EventHandler(this.navigate_button_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 28);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Register";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1492, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.navigate_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.splitContainer1);
@@ -205,6 +217,7 @@ namespace Trust_Your_Locals
         }
 
         private Button navigate_button;
+        private Button button1;
     }
 }
 

@@ -15,6 +15,11 @@ namespace Trust_Your_Locals
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             dataDisplay = new DataDisplayClass(comboBox1, dgv);
+            if (LoginStatusHandler.isLogged()==true)
+            {
+                navigate_button.Hide();
+                button1.Hide();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -87,6 +92,13 @@ namespace Trust_Your_Locals
             Form3 form3 = new Form3();
             form3.Show();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.Show();
         }
     }
 }
