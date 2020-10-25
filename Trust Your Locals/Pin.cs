@@ -1,4 +1,10 @@
-﻿namespace Trust_Your_Locals
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Trust_Your_Locals
 {
     public class Pin
     {
