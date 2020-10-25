@@ -201,6 +201,7 @@ namespace Trust_Your_Locals
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += Form1_FormClosed;
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -212,6 +213,7 @@ namespace Trust_Your_Locals
 
         }
 
+       
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             File.Delete("locations.js");
