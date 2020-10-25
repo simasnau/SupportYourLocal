@@ -18,16 +18,22 @@
 .packages/
 
 # Build results
-[Dd]ebug/
+bin/Release/*
+!bin/
+bin/*
+!bin/Debug/
+bin/Debug/*
+!bin/Debug/index.html
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
+
+
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -89,6 +95,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.exe
 
 # Chutzpah Test files
 _Chutzpah*
@@ -377,6 +384,9 @@ Temporary Items
 *.xsd
 *.xsc
 *.resx
-!Resources.resx
 App.config
 Database1DataSet.Designer.cs
+config.js
+locations.js
+API_keys.cs
+!Resources.resx
