@@ -11,20 +11,20 @@ using System.Windows.Forms;
 
 namespace Trust_Your_Locals
 {
-    public partial class Form2 : Form
+    public partial class RegistrationForm : Form
     {
-        public Form2()
+        public RegistrationForm()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void RegistrationForm_Load(object sender, EventArgs e)
         {
-            ComboBoxHandler.HandleComboBoxWithoutAll(comboBox1);
+
         }
 
-        private void back_button_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             Form1 form1 = new Form1();
@@ -33,21 +33,31 @@ namespace Trust_Your_Locals
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            Form3 form3 = new Form3();
+            form3.Show();
+
+            String adress = (textBox2.Text + ", " + textBox3.Text + " " + textBox4.Text);
+
             SQLConnectionHandler.MakeConnection();
-            string query = "INSERT INTO Products ([Shop ID], [Price], [Name], [Product type ID]) VALUES (@id, @price,@name,@pid)";
+            string query = "INSERT INTO Seller ([Seller name], [Adress], [Password], [Email]) VALUES (@name, @adress,@password,@email)";
             using (SqlCommand cmd = new SqlCommand(query, SQLConnectionHandler.GetConnection()))
             {
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = LoginStatusHandler.getId(); //Temporary set to Jono Ukis(Id:16) defaut as there is no login system at the moment
-                cmd.Parameters.Add("@price", SqlDbType.Money).Value = textBox1.Text;
-                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = comboBox1.SelectedValue.ToString();
-                cmd.Parameters.Add("@pid", SqlDbType.Int).Value = 1;
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = textBox5.Text;
+                cmd.Parameters.Add("@adress", SqlDbType.NVarChar).Value = adress;
+                cmd.Parameters.Add("@password", SqlDbType.NVarChar).Value = maskedTextBox1.Text;
+                cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = textBox1.Text;
 
                 int rowsAdded = cmd.ExecuteNonQuery();
                 if (rowsAdded > 0)
-                    MessageBox.Show("You have succesfully added a product!");
+                {
+                    MessageBox.Show("You have succesfully created an account!");
+                }
                 else
                     // Well this should never really happen
                     MessageBox.Show("No row inserted");
+
+
             }
         }
     }

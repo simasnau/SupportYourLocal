@@ -15,6 +15,11 @@ namespace Trust_Your_Locals
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             dataDisplay = new DataDisplayClass(comboBox1, dgv);
+            if (LoginStatusHandler.isLogged()==true)
+            {
+                navigate_button.Hide();
+                button1.Hide();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,8 +56,8 @@ namespace Trust_Your_Locals
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                string name=row.Cells["Seller name"].Value.ToString();
-                string adress = row.Cells["Adress"].Value.ToString();
+                string name=row.Cells["Name:"].Value.ToString();
+                string adress = row.Cells["Adress:"].Value.ToString();
 
                 if (!adressList.Contains(adress))
                 {
@@ -89,19 +94,12 @@ namespace Trust_Your_Locals
 
         }
 
-        private void orderButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            PlaceOrderForm placeOrderForm = new PlaceOrderForm(dgv);
-            placeOrderForm.Show();
+            this.Visible = false;
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.Show();
         }
-        private void viewOrdersClick(object sender, EventArgs e)
-        {
-            int userId = 1;
-            OrderViewForm orderViewForm = new OrderViewForm(userId);
-            orderViewForm.Show();
-
-        }
-
     }
 }
 
