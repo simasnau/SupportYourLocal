@@ -55,6 +55,7 @@ namespace Trust_Your_Locals
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.navigate_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.orderView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -238,6 +239,8 @@ namespace Trust_Your_Locals
         private Button navigate_button;
         private Button orderButton;
         private Button orderView;
+        private Button button1;
+
     }
 }
 

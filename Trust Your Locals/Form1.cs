@@ -100,6 +100,19 @@ namespace Trust_Your_Locals
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.Show();
         }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            PlaceOrderForm placeOrderForm = new PlaceOrderForm(dgv);
+            placeOrderForm.Show();
+        }
+        private void viewOrdersClick(object sender, EventArgs e)
+        {
+            int userId = 1;
+            OrderViewForm orderViewForm = new OrderViewForm(userId);
+            orderViewForm.Show();
+
+        }
     }
 }
 
