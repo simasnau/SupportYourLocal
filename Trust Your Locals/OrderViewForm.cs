@@ -9,11 +9,12 @@ namespace Trust_Your_Locals
         public OrderViewForm(int userId)
         {
             InitializeComponent();
-            string sqlQuery = "SELECT Name, Time, Quantity, Adress FROM Orders, Seller WHERE ID=\"Seller ID\" AND \"Buyer ID\"="+userId;
+            string sqlQuery = "SELECT Name, FORMAT(Time, N'hh\\:mm') AS Time, Quantity, Adress FROM Orders, Seller WHERE ID=\"Seller ID\" AND \"Buyer ID\"="+userId;
             DataTable dt = new DataTable();
             SQLConnectionHandler.MakeConnection();
             SqlDataAdapter da = new SqlDataAdapter(sqlQuery, SQLConnectionHandler.GetConnection());
             da.Fill(dt);
+            
             dataGridView1.DataSource = dt;
         }
     }

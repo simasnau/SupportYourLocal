@@ -96,7 +96,7 @@ namespace Trust_Your_Locals
         }
         private void viewOrdersClick(object sender, EventArgs e)
         {
-            int userId = 2;
+            int userId = 1;
             OrderViewForm orderViewForm = new OrderViewForm(userId);
             orderViewForm.Show();
 
