@@ -56,8 +56,8 @@ namespace Trust_Your_Locals
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                string name=row.Cells["Name:"].Value.ToString();
-                string adress = row.Cells["Adress:"].Value.ToString();
+                string name=row.Cells["Seller name"].Value.ToString();
+                string adress = row.Cells["Adress"].Value.ToString();
 
                 if (!adressList.Contains(adress))
                 {
@@ -108,12 +108,10 @@ namespace Trust_Your_Locals
         }
         private void viewOrdersClick(object sender, EventArgs e)
         {
-            int userId = 1;
+            int userId = LoginStatusHandler.getId();
             OrderViewForm orderViewForm = new OrderViewForm(userId);
             orderViewForm.Show();
 
         }
     }
 }
-
-

@@ -34,7 +34,7 @@ namespace Trust_Your_Locals
                 cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = productName;
                 cmd.Parameters.Add("@time", SqlDbType.Time).Value = timeBox.Text;
                 cmd.Parameters.Add("@quantity", SqlDbType.Float).Value = quantityBox.Text;
-                cmd.Parameters.Add("@bid", SqlDbType.Int).Value = 1;
+                cmd.Parameters.Add("@bid", SqlDbType.Int).Value = LoginStatusHandler.getId();
                 cmd.Parameters.Add("@sid", SqlDbType.Int).Value = sellerID;
                 try
                 {

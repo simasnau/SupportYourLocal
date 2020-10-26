@@ -94,7 +94,7 @@ namespace Trust_Your_Locals
             this.dgv.RowTemplate.Height = 28;
             this.dgv.Size = new System.Drawing.Size(627, 431);
             this.dgv.TabIndex = 5;
-            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
             // splitContainer1
             // 
@@ -181,14 +181,23 @@ namespace Trust_Your_Locals
             // 
             // navigate_button
             // 
-            this.navigate_button.Location = new System.Drawing.Point(17, 19);
-            this.navigate_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navigate_button.Location = new System.Drawing.Point(15, 15);
             this.navigate_button.Name = "navigate_button";
-            this.navigate_button.Size = new System.Drawing.Size(132, 54);
+            this.navigate_button.Size = new System.Drawing.Size(87, 28);
             this.navigate_button.TabIndex = 8;
-            this.navigate_button.Text = "Add your item to sell";
+            this.navigate_button.Text = "Log in";
             this.navigate_button.UseVisualStyleBackColor = true;
             this.navigate_button.Click += new System.EventHandler(this.navigate_button_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 28);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Register";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // orderView
             // 
@@ -210,6 +219,7 @@ namespace Trust_Your_Locals
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
@@ -225,7 +235,7 @@ namespace Trust_Your_Locals
 
         }
 
-       
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             File.Delete("locations.js");
