@@ -22,5 +22,10 @@ namespace Trust_Your_Locals
         {
             return isLoggedIn;
         }
+
+        public static int getId ()
+        {
+            return loggedId;
+        }
     }
 }
