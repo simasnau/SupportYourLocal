@@ -94,6 +94,14 @@ namespace Trust_Your_Locals
             PlaceOrderForm placeOrderForm = new PlaceOrderForm(dgv);
             placeOrderForm.Show();
         }
+        private void viewOrdersClick(object sender, EventArgs e)
+        {
+            int userId = 2;
+            OrderViewForm orderViewForm = new OrderViewForm(userId);
+            orderViewForm.Show();
+
+        }
+
     }
 }
 

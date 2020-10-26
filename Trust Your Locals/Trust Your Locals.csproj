@@ -85,6 +85,12 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="MapHandler.cs" />
+    <Compile Include="OrderViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderViewForm.Designer.cs">
+      <DependentUpon>OrderViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pin.cs" />
     <Compile Include="PlaceOrderForm.cs">
       <SubType>Form</SubType>
@@ -135,6 +141,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderViewForm.resx">
+      <DependentUpon>OrderViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceOrderForm.resx">
       <DependentUpon>PlaceOrderForm.cs</DependentUpon>

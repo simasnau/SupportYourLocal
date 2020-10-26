@@ -48,13 +48,14 @@ namespace Trust_Your_Locals
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.orderButton = new System.Windows.Forms.Button();
             this.pavadinimas_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_pavadinimas = new System.Windows.Forms.TextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.navigate_button = new System.Windows.Forms.Button();
-            this.orderButton = new System.Windows.Forms.Button();
+            this.orderView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -105,6 +106,7 @@ namespace Trust_Your_Locals
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.orderView);
             this.splitContainer1.Panel1.Controls.Add(this.orderButton);
             this.splitContainer1.Panel1.Controls.Add(this.pavadinimas_button);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -116,6 +118,16 @@ namespace Trust_Your_Locals
             this.splitContainer1.Size = new System.Drawing.Size(1028, 699);
             this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 6;
+            // 
+            // orderButton
+            // 
+            this.orderButton.Location = new System.Drawing.Point(19, 427);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(154, 67);
+            this.orderButton.TabIndex = 3;
+            this.orderButton.Text = "Place Order";
+            this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // pavadinimas_button
             // 
@@ -177,15 +189,15 @@ namespace Trust_Your_Locals
             this.navigate_button.UseVisualStyleBackColor = true;
             this.navigate_button.Click += new System.EventHandler(this.navigate_button_Click);
             // 
-            // orderButton
+            // orderView
             // 
-            this.orderButton.Location = new System.Drawing.Point(19, 427);
-            this.orderButton.Name = "orderButton";
-            this.orderButton.Size = new System.Drawing.Size(154, 67);
-            this.orderButton.TabIndex = 3;
-            this.orderButton.Text = "Place Order";
-            this.orderButton.UseVisualStyleBackColor = true;
-            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
+            this.orderView.Location = new System.Drawing.Point(19, 551);
+            this.orderView.Name = "orderView";
+            this.orderView.Size = new System.Drawing.Size(154, 67);
+            this.orderView.TabIndex = 4;
+            this.orderView.Text = "View Your Orders";
+            this.orderView.UseVisualStyleBackColor = true;
+            this.orderView.Click += new System.EventHandler(this.viewOrdersClick);
             // 
             // Form1
             // 
@@ -201,7 +213,6 @@ namespace Trust_Your_Locals
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.FormClosed += Form1_FormClosed;
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -226,6 +237,7 @@ namespace Trust_Your_Locals
 
         private Button navigate_button;
         private Button orderButton;
+        private Button orderView;
     }
 }
 

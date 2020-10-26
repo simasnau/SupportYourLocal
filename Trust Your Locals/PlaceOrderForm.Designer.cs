@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 297);
+            this.ClientSize = new System.Drawing.Size(601, 266);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.quantityBoxHint);
@@ -126,6 +126,7 @@
             this.PerformLayout();
 
         }
+
 
         #endregion
 
