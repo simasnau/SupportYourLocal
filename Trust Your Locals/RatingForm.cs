@@ -53,9 +53,6 @@ namespace Trust_Your_Locals
 
         }
 
-
-
-
         private void Form3_Load(object sender, EventArgs e)
         {
                 if (comboBox2.Items.Contains(textBox2.Text))
@@ -84,82 +81,47 @@ namespace Trust_Your_Locals
         }
         private void addRating(String name, String comment, int star)
         {
-            string fileName = @"C:\\Users\\Kestas\\Desktop\\2KURSAS\\PSI\\IProgramosPhase\\" + name + ".txt";
+            string fileName = AppDomain.CurrentDomain.BaseDirectory; // Path.Combine(AppDomain.CurrentDomain.BaseDirectory, name + ".txt");
+            fileName = fileName.Replace("\\Trust Your Locals\\bin\\Debug", "");
+            fileName = Path.Combine(fileName, name + ".txt");
+            
             int ID = findID(name);
             if (File.Exists(fileName))
             {
-                System.IO.StreamReader file =
-                new System.IO.StreamReader(fileName);
+                System.IO.StreamReader file = new System.IO.StreamReader(fileName);
                 float stars = Convert.ToInt32(file.ReadLine());
+                int n = Convert.ToInt32(file.ReadLine());
                 file.Close();
-                float starRate = (stars + star) / 2;
-                //System.IO.StreamWriter file2 = new StreamWriter(fileName, true);
-                //
-                //file2.WriteLine(starRate);
-                ////file2 = File.AppendText(fileName);
-                ////file2.WriteLine(comment);
-                //file2.Close();
+                n++;
+                float starRate = (stars + star);
                 lineChanger(starRate.ToString(), fileName, 1);
+                lineChanger(n.ToString(), fileName, 2);
 
-                StreamWriter sr;
-
-                sr = File.AppendText(fileName);
-
-                sr.WriteLine(comment);
-                sr.Close();
-                //using (sr = new StreamWriter(fileName))
-                //{
-                //    string s = "";
-                //    //while ((s = sr.ReadLine()) != null )
-                //    //{ }
-                //    File.AppendAllText(fileName);
-                //    Byte[] _comment = new UTF8Encoding(true).GetBytes(comment + "\n");
-                //    sr.Write(_comment, 0, _comment.Length);
-                //}
+                if (comment == null || comment == "") { }
+                else
+                {
+                    StreamWriter sr;
+                    sr = File.AppendText(fileName);
+                    sr.WriteLine(comment); 
+                    sr.Close();
+                }
             }
             else
             using (FileStream fs = File.Create(fileName))
             {
                 Byte[] _star = new UTF8Encoding(true).GetBytes(star.ToString() + "\n");
                 fs.Write(_star, 0, _star.Length);
-                Byte[] id = new UTF8Encoding(true).GetBytes(ID.ToString() + "\n");
-                fs.Write(id, 0, id.Length);
+                Byte[] _count = new UTF8Encoding(true).GetBytes("1" + "\n");
+                fs.Write(_count, 0, _star.Length);
                 Byte[] _name = new UTF8Encoding(true).GetBytes(name + "\n");
                 fs.Write(_name, 0, _name.Length);
-                Byte[] _comment = new UTF8Encoding(true).GetBytes(comment);
-                fs.Write(_comment, 0, _comment.Length);
+                    if (comment == null || comment == "") { }
+                    else{
+                        Byte[] _comment = new UTF8Encoding(true).GetBytes(comment);
+                        fs.Write(_comment, 0, _comment.Length);
+                    }
             }
 
-
-
-
-
-
-
-            //int l=0;
-            ////  f.comment = comment;
-            //
-
-            //foreach(var i in f.ID)
-            //{
-            //    l++;
-
-            //    if (ID == i)
-            //    {
-
-
-            //    }
-
-            //}
-            //if (l==0)
-            //{
-            //    if (f.starOverall[0] == 0 )
-            //        f.starOverall[0] = star;
-            //    else f.starOverall[0] = (f.starOverall[0] + star)/2;
-            //    f.ID[0] = ID;
-            //    f.name[0] = name;
-            //    f.comment[0] = comment;
-            //}
         }
         private int findID(string name)
         {
@@ -170,33 +132,15 @@ namespace Trust_Your_Locals
             DataTable dt = new DataTable();
             da.Fill(dt);
             
-            //Console.Out.Write(dt);
-           // MessageBox.Show(dt.Rows[0].ItemArray[0].ToString());
-            //string identify = dt.Rows[0].ItemArray[0].ToString();
             int id = Convert.ToInt32(dt.Rows[0].ItemArray[0]);
             return id;
-            //      comboBox2.DisplayMember = "ID";
-            //     comboBox2.ValueMember = "ID";
-            //     comboBox2.DataSource = dt;
         }
-
-        struct FarmerRating {
-            public int[] ID;
-            public string[] name;
-            public int star;
-            public float[] starOverall;
-            public string[] comment;
-        } FarmerRating f;
         
-
         private void button2_Click(object sender, EventArgs e)
         {
 
             if (checkedListBox1.CheckedItems.Count != 0)
-            {//string s;
-
-                // String m = comboBox2.SelectedItem.ToString();
-                // MessageBox.Show(m); 
+            {
                 for (int i = 0; i <= (checkedListBox1.Items.Count - 1); i++)
                 {
                     if (checkedListBox1.GetItemChecked(i))
@@ -204,7 +148,6 @@ namespace Trust_Your_Locals
                         string namely = comboBox2.Text;
                         string commently = textBox1.Text;
                         addRating(namely, commently, i+1);
-                       // MessageBox.Show(namely);
                     }
                 }
 
@@ -212,7 +155,6 @@ namespace Trust_Your_Locals
             }
             else
             { MessageBox.Show("Please choose a rating"); }
-            // DialogResult dr = MessageBox.Show("Rating added");
             RatingForm Form_3 = new RatingForm();
 
         }
@@ -224,7 +166,6 @@ namespace Trust_Your_Locals
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(textBox2.Text);
             SQLConnectionHandler.MakeConnection();
             string query = "SELECT DISTINCT \"Name:\" FROM Seller WHERE \"Name:\" LIKE '%" + textBox2.Text + "%'";
             SqlDataAdapter da = new SqlDataAdapter(query, SQLConnectionHandler.GetConnection());
@@ -234,6 +175,33 @@ namespace Trust_Your_Locals
             comboBox2.DisplayMember = "Name:";
             comboBox2.ValueMember = "Name:";
             comboBox2.DataSource = dt;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string pathName = AppDomain.CurrentDomain.BaseDirectory;//Path.Combine(AppDomain.CurrentDomain.BaseDirectory, comboBox2.Text + ".txt");
+            pathName = pathName.Replace("\\Trust Your Locals\\bin\\Debug", "");
+            pathName = Path.Combine(pathName, comboBox2.Text + ".txt");
+            if (File.Exists(pathName))
+            {
+                listView1.Clear();
+                System.IO.StreamReader file = new System.IO.StreamReader(pathName);
+                double stars = Math.Round((Convert.ToDouble(file.ReadLine())*1.0) / Convert.ToDouble(file.ReadLine()) *1.0, 1);
+                listView1.Items.Add("Prekyvietes pavadinimas: " + file.ReadLine() + "\n");
+                listView1.Items.Add("Reitingas: " + stars.ToString() + " ★");
+                listView1.Items.Add("Komentarai:" + "\n");
+                string line;
+                while ((line = file.ReadLine()) != null)
+                    listView1.Items.Add(line);
+                file.Close();
+            }
+            else MessageBox.Show("No ratings or comments exist for this seller yet.");
+                    
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
