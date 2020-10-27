@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -11,6 +10,9 @@ using System.Data.SqlClient;
 using System.Windows.Forms.VisualStyles;
 using System.IO;
 using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Trust_Your_Locals
 {
@@ -81,45 +83,30 @@ namespace Trust_Your_Locals
         }
         private void addRating(String name, String comment, int star)
         {
-            string fileName = AppDomain.CurrentDomain.BaseDirectory; // Path.Combine(AppDomain.CurrentDomain.BaseDirectory, name + ".txt");
+            string fileName = AppDomain.CurrentDomain.BaseDirectory; 
             fileName = fileName.Replace("\\Trust Your Locals\\bin\\Debug", "");
-            fileName = Path.Combine(fileName, name + ".txt");
-            
+            fileName = Path.Combine(fileName, name + ".json");
+            Farmer farmer = new Farmer()
+            {
+                Name = name,
+                Rating = star,
+                Comment = comment 
+            };
             int ID = findID(name);
             if (File.Exists(fileName))
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(fileName);
-                float stars = Convert.ToInt32(file.ReadLine());
-                int n = Convert.ToInt32(file.ReadLine());
-                file.Close();
-                n++;
-                float starRate = (stars + star);
-                lineChanger(starRate.ToString(), fileName, 1);
-                lineChanger(n.ToString(), fileName, 2);
-
-                if (comment == null || comment == "") { }
-                else
-                {
+                string JResult = JsonConvert.SerializeObject(farmer);
                     StreamWriter sr;
                     sr = File.AppendText(fileName);
-                    sr.WriteLine(comment); 
+                    sr.WriteLine(JResult); 
                     sr.Close();
-                }
             }
             else
-            using (FileStream fs = File.Create(fileName))
+            using (StreamWriter fs = new StreamWriter(fileName))
             {
-                Byte[] _star = new UTF8Encoding(true).GetBytes(star.ToString() + "\n");
-                fs.Write(_star, 0, _star.Length);
-                Byte[] _count = new UTF8Encoding(true).GetBytes("1" + "\n");
-                fs.Write(_count, 0, _star.Length);
-                Byte[] _name = new UTF8Encoding(true).GetBytes(name + "\n");
-                fs.Write(_name, 0, _name.Length);
-                    if (comment == null || comment == "") { }
-                    else{
-                        Byte[] _comment = new UTF8Encoding(true).GetBytes(comment);
-                        fs.Write(_comment, 0, _comment.Length);
-                    }
+                string JResult = JsonConvert.SerializeObject(farmer);
+                    fs.WriteLine(JResult);
+                
             }
 
         }
@@ -179,21 +166,36 @@ namespace Trust_Your_Locals
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string pathName = AppDomain.CurrentDomain.BaseDirectory;//Path.Combine(AppDomain.CurrentDomain.BaseDirectory, comboBox2.Text + ".txt");
+            string pathName = AppDomain.CurrentDomain.BaseDirectory;
             pathName = pathName.Replace("\\Trust Your Locals\\bin\\Debug", "");
-            pathName = Path.Combine(pathName, comboBox2.Text + ".txt");
+            pathName = Path.Combine(pathName, comboBox2.Text + ".json");
             if (File.Exists(pathName))
             {
                 listView1.Clear();
-                System.IO.StreamReader file = new System.IO.StreamReader(pathName);
-                double stars = Math.Round((Convert.ToDouble(file.ReadLine())*1.0) / Convert.ToDouble(file.ReadLine()) *1.0, 1);
-                listView1.Items.Add("Prekyvietes pavadinimas: " + file.ReadLine() + "\n");
-                listView1.Items.Add("Reitingas: " + stars.ToString() + " ★");
-                listView1.Items.Add("Komentarai:" + "\n");
-                string line;
-                while ((line = file.ReadLine()) != null)
-                    listView1.Items.Add(line);
-                file.Close();
+                System.IO.StreamReader ratingsFile = new System.IO.StreamReader(pathName);
+                string JRead;
+                int n=0;
+                int Rate = 0;
+                while ((JRead = ratingsFile.ReadLine()) != null)
+                {
+                    Farmer GetRatings = JsonConvert.DeserializeObject<Farmer>(JRead);
+                    Rate += GetRatings.Rating;
+                    n++;
+                }
+                double Overall = Math.Round((Rate*1.0 / n), 1);
+                ratingsFile.Close();
+                StreamReader fileForData = new StreamReader(pathName);
+                listView1.Items.Add("Seller: \"" + comboBox2.Text + "\":\n");
+                listView1.Items.Add("Overall rating: " + Overall + " ★\n");
+                listView1.Items.Add("Individual ratings: ");
+                while ((JRead = fileForData.ReadLine()) != null)
+                {
+                    Farmer farmerData = JsonConvert.DeserializeObject<Farmer>(JRead);
+                    
+                    listView1.Items.Add(farmerData.ToString());
+                }
+                
+                fileForData.Close();
             }
             else MessageBox.Show("No ratings or comments exist for this seller yet.");
                     
