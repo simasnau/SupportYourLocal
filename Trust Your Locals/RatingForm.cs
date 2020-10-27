@@ -106,9 +106,7 @@ namespace Trust_Your_Locals
             {
                 string JResult = JsonConvert.SerializeObject(farmer);
                     fs.WriteLine(JResult);
-                
             }
-
         }
         private int findID(string name)
         {
@@ -190,11 +188,9 @@ namespace Trust_Your_Locals
                 listView1.Items.Add("Individual ratings: ");
                 while ((JRead = fileForData.ReadLine()) != null)
                 {
-                    Farmer farmerData = JsonConvert.DeserializeObject<Farmer>(JRead);
-                    
+                    Farmer farmerData = JsonConvert.DeserializeObject<Farmer>(JRead);                   
                     listView1.Items.Add(farmerData.ToString());
                 }
-                
                 fileForData.Close();
             }
             else MessageBox.Show("No ratings or comments exist for this seller yet.");
