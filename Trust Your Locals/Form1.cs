@@ -113,5 +113,11 @@ namespace Trust_Your_Locals
             orderViewForm.Show();
 
         }
+
+        private void rateButton_Click(object sender, EventArgs e)
+        {
+            RatingForm form_Rate = new RatingForm();
+            form_Rate.ShowDialog();
+        }
     }
 }

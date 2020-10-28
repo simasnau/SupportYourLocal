@@ -56,6 +56,7 @@ namespace Trust_Your_Locals
             this.label2 = new System.Windows.Forms.Label();
             this.navigate_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.rateButton = new System.Windows.Forms.Button();
             this.orderView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -209,6 +210,18 @@ namespace Trust_Your_Locals
             this.orderView.UseVisualStyleBackColor = true;
             this.orderView.Click += new System.EventHandler(this.viewOrdersClick);
             // 
+            // rateButton
+            // 
+            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateButton.Location = new System.Drawing.Point(377, 12);
+            this.rateButton.Name = "rateButton";
+            this.rateButton.Size = new System.Drawing.Size(192, 41);
+            this.rateButton.TabIndex = 8;
+            this.rateButton.Text = "Rate seller";
+            this.rateButton.UseVisualStyleBackColor = true;
+            this.rateButton.Click += new System.EventHandler(this.rateButton_Click);
+            // 
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -220,6 +233,7 @@ namespace Trust_Your_Locals
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.rateButton);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
@@ -250,6 +264,7 @@ namespace Trust_Your_Locals
         private Button orderButton;
         private Button orderView;
         private Button button1;
+        private Button rateButton;
 
     }
 }

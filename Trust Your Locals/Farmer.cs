@@ -3,7 +3,7 @@
 namespace Trust_Your_Locals
 {
     class Farmer
-    { 
+    {
         public string Name { get; set; }
         public int Rating { get; set; }
         public string Comment { get; set; }
@@ -12,6 +12,6 @@ namespace Trust_Your_Locals
         {
             return string.Format("Rating: {0} ★ \n\t Comment: {1}", Rating, Comment);
         }
-         
+
     }
 }
