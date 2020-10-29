@@ -4,15 +4,9 @@ using System.Windows.Forms;
 
 namespace Trust_Your_Locals
 {
-    public class MapHandler
+    public static class MapHandler
     {
-        private WebBrowser webBrowser;
-        public MapHandler(WebBrowser webBrowser)
-        {
-            this.webBrowser = webBrowser;
-        }
-
-        public void showAdress(string adresas)
+        public static void showAdress(WebBrowser webBrowser)
         {
             try
             {

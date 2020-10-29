@@ -36,17 +36,5 @@ namespace Trust_Your_Locals
 
         }
 
-        public void getAdress(TextBox textBox, DataGridViewCellEventArgs eArgs)
-        {
-            try
-            {
-                dgv.CurrentRow.Selected = true;
-                textBox.Text = dgv.getSelectedCellAdress(eArgs);
-
-            }
-            catch (ArgumentOutOfRangeException)
-            { }
-        }
-
     }
 }

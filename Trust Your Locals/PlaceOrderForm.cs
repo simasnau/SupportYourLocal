@@ -7,20 +7,19 @@ namespace Trust_Your_Locals
 {
     public partial class PlaceOrderForm : Form
     {
-        private DataGridView dgv;
+        private string productName;
+        private string adress;
 
 
-        public PlaceOrderForm(DataGridView dgv)
+        public PlaceOrderForm(string productName, string adress)
         {
             InitializeComponent();
-            this.dgv = dgv;
+            this.productName=productName;
+            this.adress=adress;
         }
 
         public void placeOrder(object sender, EventArgs e)
         {
-            string productName = dgv.SelectedRows[0].Cells["Name"].Value.ToString();
-            string adress = dgv.SelectedRows[0].Cells["Adress"].Value.ToString();
-
             SQLConnectionHandler.MakeConnection();
             string sqlQuery = "SELECT ID FROM Seller WHERE Adress= @adress";
             SqlCommand cmd = new SqlCommand(sqlQuery, SQLConnectionHandler.GetConnection());

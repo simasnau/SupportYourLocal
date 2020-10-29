@@ -60,7 +60,6 @@ namespace Trust_Your_Locals
             this.label1.Size = new System.Drawing.Size(163, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Choose farmer:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -74,7 +73,6 @@ namespace Trust_Your_Locals
             this.label2.Size = new System.Drawing.Size(112, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Your rating:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -96,7 +94,6 @@ namespace Trust_Your_Locals
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(802, 33);
             this.comboBox2.TabIndex = 3;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -106,7 +103,6 @@ namespace Trust_Your_Locals
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(802, 128);
             this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
             // 
@@ -140,7 +136,6 @@ namespace Trust_Your_Locals
             this.checkedListBox1.TabIndex = 2;
             this.checkedListBox1.ThreeDCheckBoxes = true;
             this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -161,7 +156,6 @@ namespace Trust_Your_Locals
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(333, 33);
             this.textBox2.TabIndex = 12;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button3
             // 
@@ -186,7 +180,6 @@ namespace Trust_Your_Locals
             this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // RatingForm
             // 

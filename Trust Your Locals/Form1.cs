@@ -34,16 +34,14 @@ namespace Trust_Your_Locals
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataDisplay.getAdress(textBox:txt_pavadinimas, eArgs:e);
+            dgv.CurrentRow.Selected = true;
         }
 
         private void pavadinimas_button_Click(object sender, EventArgs e)
         {
             WriteCoordsToFile();
-            MapHandler mapHandler = new MapHandler(webBrowser1);
-            mapHandler.showAdress(txt_pavadinimas.Text);
+            MapHandler.showAdress(webBrowser1);
         }
-
 
         private void WriteCoordsToFile()
         {
@@ -70,7 +68,13 @@ namespace Trust_Your_Locals
                     XElement locationElement = xdoc.Element("GeocodeResponse").Element("result").Element("geometry").Element("location");
                     XElement lat = locationElement.Element("lat");
                     XElement lng = locationElement.Element("lng");
-                    Pin pin = new Pin(name, lat.Value, lng.Value);
+
+                    Pin pin = new Pin
+                    {
+                        name = name,
+                        lat = lat.Value,
+                        lng = lng.Value
+                    };
                     pinList.Add(pin);
                 }
                 
@@ -103,8 +107,14 @@ namespace Trust_Your_Locals
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            PlaceOrderForm placeOrderForm = new PlaceOrderForm(dgv);
-            placeOrderForm.Show();
+            if (dgv.CurrentRow.Selected)
+            {
+                string name = dgv.getSelectedCellValue("Name");
+                string adress = dgv.getSelectedCellValue("Adress");
+                PlaceOrderForm placeOrderForm = new PlaceOrderForm(adress: adress, productName: name);
+                placeOrderForm.Show();
+            }
+            else MessageBox.Show("Please select product to order");
         }
         private void viewOrdersClick(object sender, EventArgs e)
         {

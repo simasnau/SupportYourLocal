@@ -9,12 +9,22 @@ namespace Trust_Your_Locals
 {
     public static class ExtensionMethods
     {
-        public static string getSelectedCellAdress(this DataGridView dgv, DataGridViewCellEventArgs eArgs)
+        public static string getSelectedCellValue(this DataGridView dgv, String column)
         {
-            if (dgv.Rows[eArgs.RowIndex].Cells[eArgs.ColumnIndex].Value != null)
-                return dgv.Rows[eArgs.RowIndex].Cells["Adress"].FormattedValue.ToString();
-            else return null;
+            try
+            {
+                if (dgv.SelectedRows[0].Cells[column].Value != null)
+                    return dgv.SelectedRows[0].Cells[column].Value.ToString();
+                else return null;
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return null;
+            }
+           
         }
+
 
     }
 }
