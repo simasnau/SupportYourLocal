@@ -118,8 +118,10 @@ namespace Trust_Your_Locals
         }
         private void viewOrdersClick(object sender, EventArgs e)
         {
-            int userId = LoginStatusHandler.getId();
-            OrderViewForm orderViewForm = new OrderViewForm(userId);
+            OrderViewForm orderViewForm;
+
+            if (LoginStatusHandler.isLogged()) orderViewForm = new OrderViewForm(LoginStatusHandler.getId());
+            else orderViewForm = new OrderViewForm();
             orderViewForm.Show();
 
         }

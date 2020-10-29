@@ -6,7 +6,7 @@ namespace Trust_Your_Locals
 {
     public partial class OrderViewForm : Form
     {
-        public OrderViewForm(int userId)
+        public OrderViewForm(int userId=0)
         {
             InitializeComponent();
             string sqlQuery = "SELECT Name, FORMAT(Time, N'hh\\:mm') AS Time, Quantity, Adress FROM Orders, Seller WHERE ID=\"Seller ID\" AND \"Buyer ID\"="+userId;

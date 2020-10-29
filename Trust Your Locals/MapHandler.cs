@@ -12,7 +12,6 @@ namespace Trust_Your_Locals
             {
                 string path = Directory.GetCurrentDirectory();
                 webBrowser.Navigate(new Uri(path + "\\index.html"));
-                    
             }
             catch (Exception ex)
             {

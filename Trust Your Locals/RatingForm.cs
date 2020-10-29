@@ -51,12 +51,6 @@ namespace Trust_Your_Locals
             for (ix = 0; ix < checkedListBox1.Items.Count; ++ix)
                 if (ix != e.Index) checkedListBox1.SetItemChecked(ix, false);
         }
-        static void lineChanger(string newText, string fileName, int line_to_edit)
-        {
-            string[] arrLine = File.ReadAllLines(fileName);
-            arrLine[line_to_edit - 1] = newText;
-            File.WriteAllLines(fileName, arrLine);
-        }
         private void addRating(String name, String comment, int star)
         {
             string fileName = AppDomain.CurrentDomain.BaseDirectory;
