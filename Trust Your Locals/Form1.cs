@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
@@ -48,8 +49,8 @@ namespace Trust_Your_Locals
             string requestUri;
             WebRequest request;
             WebResponse response;
-            ArrayList pinList= new ArrayList();
-            ArrayList adressList = new ArrayList();
+            List<Pin> pinList= new List<Pin>();
+            List<string> adressList = new List<string>();
             StreamWriter file = new StreamWriter("locations.js");
 
             foreach (DataGridViewRow row in dgv.Rows)
