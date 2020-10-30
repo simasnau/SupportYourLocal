@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -26,19 +27,8 @@ namespace Trust_Your_Locals
 
         static public void HandleComboBoxWithoutAll(ComboBox cb)
         {
-            SQLConnectionHandler.MakeConnection();
-            string query = "SELECT DISTINCT Name FROM Products";
-            SqlDataAdapter da = new SqlDataAdapter(query, SQLConnectionHandler.GetConnection());
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            cb.DisplayMember = "Name";
-            cb.ValueMember = "Name";
-            cb.DataSource = dt;
-
+           cb.DataSource = Enum.GetValues(typeof(Product));
         }
-
-
 
 
     }
