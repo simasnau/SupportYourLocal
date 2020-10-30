@@ -94,7 +94,7 @@ namespace Trust_Your_Locals
         private void navigate_button_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Form3 form3 = new Form3();
+            LoginForm form3 = new LoginForm();
             form3.Show();
 
         }
