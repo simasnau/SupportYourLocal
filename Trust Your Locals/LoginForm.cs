@@ -13,10 +13,12 @@ namespace Trust_Your_Locals
 {
     public partial class LoginForm : Form
     {
+        
         public LoginForm()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+            
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -26,6 +28,7 @@ namespace Trust_Your_Locals
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             this.Visible = false;
             Form1 form1 = new Form1();
             form1.Show();

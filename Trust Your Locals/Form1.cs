@@ -13,13 +13,18 @@ namespace Trust_Your_Locals
         private DataDisplayClass dataDisplay;
         public Form1()
         {
+            
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+            signOut_Button.Hide(); 
+            addProduct_Button.Hide();
             dataDisplay = new DataDisplayClass(comboBox1, dgv);
             if (LoginStatusHandler.isLogged()==true)
             {
                 navigate_button.Hide();
                 button1.Hide();
+                addProduct_Button.Show();
+                signOut_Button.Show();
             }
         }
 
@@ -93,10 +98,10 @@ namespace Trust_Your_Locals
 
         private void navigate_button_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
             LoginForm form3 = new LoginForm();
             form3.Show();
-
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,6 +136,27 @@ namespace Trust_Your_Locals
         {
             RatingForm form_Rate = new RatingForm();
             form_Rate.ShowDialog();
+        }
+
+        private void signOut_Button_Click(object sender, EventArgs e) 
+        {
+            LoginStatusHandler.logOut();
+            Form1 nala = new Form1();
+            nala.Show();
+            this.Hide();
+            MessageBox.Show("You have been successfully signed out");
+        }
+
+        private void addProduct_Button_Click(object sender, EventArgs e)
+        {
+            AddProductForm productForm = new AddProductForm();
+            productForm.Show();
+            this.Close();
+        }
+
+        private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            //Application.Exit();
         }
     }
 }

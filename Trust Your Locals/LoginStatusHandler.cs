@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,11 @@ namespace Trust_Your_Locals
         {
             isLoggedIn = true;
             loggedId = loggedIdparam;
+        }
+
+        public static void logOut()
+        {
+            isLoggedIn = false;
         }
 
         public static Boolean isLogged()

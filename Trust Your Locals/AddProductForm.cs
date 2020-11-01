@@ -27,14 +27,16 @@ namespace Trust_Your_Locals
         private void back_button_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            
             Form1 form1 = new Form1();
             form1.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float f = 0;
-            if (float.TryParse(textBox1.Text, out f))
+            Product product= (Product)Enum.Parse(typeof(Product), comboBox1.SelectedValue.ToString());
+
+            if (float.TryParse(textBox1.Text, out float f))
             {
                 SQLConnectionHandler.MakeConnection();
                 string query = "INSERT INTO Products ([Shop ID], [Price], [Name], [Product type ID]) VALUES (@id, @price,@name,@pid)";
@@ -43,7 +45,7 @@ namespace Trust_Your_Locals
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = LoginStatusHandler.getId(); //Temporary set to Jono Ukis(Id:16) defaut as there is no login system at the moment
                     cmd.Parameters.Add("@price", SqlDbType.Money).Value = textBox1.Text;
                     cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = comboBox1.SelectedValue.ToString();
-                    cmd.Parameters.Add("@pid", SqlDbType.Int).Value = 1;
+                    cmd.Parameters.Add("@pid", SqlDbType.Int).Value = (int)product;
 
                     int rowsAdded = cmd.ExecuteNonQuery();
                     if (rowsAdded > 0)
@@ -52,7 +54,7 @@ namespace Trust_Your_Locals
                         // Well this should never really happen
                         MessageBox.Show("No row inserted");
                 }
-                
+
             }
             else MessageBox.Show("Please enter price");
 

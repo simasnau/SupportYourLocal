@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace Trust_Your_Locals
 {
-    public class Product
+    enum Product
     {
-        public String name { get; set;}
-        public int shopID { get; set; }
-        public float price { get; set; }
-        public int productTypeID { get; set; }
-
-        Product (String name, int shopID, float price, int productTypeID)
-        {
-            this.name = name;
-            this.shopID = shopID;
-            this.price = price;
-            this.productTypeID = productTypeID;
-        }
-
-
+       Braskes=1,
+       Bulves,
+       Jautiena,
+       Morkos,
+       Kopustai,
+       Agurkai,
+       Avietes,
+       Zemuoges,
+       Svogunai,
+       Obuoliai,
+       Pomidorai
     }
 }
