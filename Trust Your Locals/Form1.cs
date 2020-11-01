@@ -98,10 +98,10 @@ namespace Trust_Your_Locals
 
         private void navigate_button_Click(object sender, EventArgs e)
         {
-            //this.Visible = false;
+            this.Visible = false;
             LoginForm form3 = new LoginForm();
             form3.Show();
-            this.Close();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
