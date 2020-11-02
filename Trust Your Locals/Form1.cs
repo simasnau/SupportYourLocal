@@ -115,8 +115,14 @@ namespace Trust_Your_Locals
                 {
                     string name = dgv.getSelectedCellValue("Name");
                     string adress = dgv.getSelectedCellValue("Adress");
-                    PlaceOrderForm placeOrderForm = new PlaceOrderForm(adress: adress, productName: name);
-                    placeOrderForm.Show();
+
+                    if (LoginStatusHandler.getId().ToString().Equals(SQLConnectionHandler.getSellerIdByAdress(adress)) == false)
+                    {
+                        PlaceOrderForm placeOrderForm = new PlaceOrderForm(adress: adress, productName: name);
+                        placeOrderForm.Show();
+                    }
+                    else MessageBox.Show("You cant order products from your own shop.");
+                    
                 }
                 else MessageBox.Show("Please select product to order");
             }

@@ -22,6 +22,17 @@ namespace Trust_Your_Locals
 			return conn;
         }
 
+		public static string getSellerIdByAdress(string adress)
+        {
+			SQLConnectionHandler.MakeConnection();
+			string sqlQuery = "SELECT ID FROM Seller WHERE Adress= @adress";
+			SqlCommand cmd = new SqlCommand(sqlQuery, SQLConnectionHandler.GetConnection());
+			cmd.Parameters.Add("@adress", SqlDbType.NVarChar).Value = adress;
+			string sellerID = cmd.ExecuteScalar().ToString();
+
+			return sellerID;
+		}
+
 
 	}
 }

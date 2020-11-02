@@ -24,15 +24,10 @@ namespace Trust_Your_Locals
         {
             if (Regex.IsMatch(timeBox.Text, @"^[0-2]\d:[0-5]\d$"))
             {
-                SQLConnectionHandler.MakeConnection();
-                string sqlQuery = "SELECT ID FROM Seller WHERE Adress= @adress";
-                SqlCommand cmd = new SqlCommand(sqlQuery, SQLConnectionHandler.GetConnection());
-                cmd.Parameters.Add("@adress", SqlDbType.NVarChar).Value = adress;
-                string sellerID = cmd.ExecuteScalar().ToString();
-
+                string sellerID = SQLConnectionHandler.getSellerIdByAdress(adress);
 
                 string query = "INSERT INTO Orders ([Name], [Time], [Quantity], [Buyer ID], [Seller ID]) VALUES (@name, @time, @quantity, @bid, @sid)";
-                using (cmd = new SqlCommand(query, SQLConnectionHandler.GetConnection()))
+                using (SqlCommand cmd = new SqlCommand(query, SQLConnectionHandler.GetConnection()))
                 {
                     cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = productName;
                     cmd.Parameters.Add("@time", SqlDbType.Time).Value = timeBox.Text;
