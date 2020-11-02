@@ -54,11 +54,11 @@ namespace Trust_Your_Locals
             this.pavadinimas_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_pavadinimas = new System.Windows.Forms.TextBox();
+            this.rateButton = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label2 = new System.Windows.Forms.Label();
             this.navigate_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.rateButton = new System.Windows.Forms.Button();
             this.signOut_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -186,6 +186,18 @@ namespace Trust_Your_Locals
             this.txt_pavadinimas.Size = new System.Drawing.Size(137, 22);
             this.txt_pavadinimas.TabIndex = 0;
             // 
+            // rateButton
+            // 
+            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateButton.Location = new System.Drawing.Point(17, 480);
+            this.rateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rateButton.Name = "rateButton";
+            this.rateButton.Size = new System.Drawing.Size(137, 33);
+            this.rateButton.TabIndex = 8;
+            this.rateButton.Text = "Rate seller";
+            this.rateButton.UseVisualStyleBackColor = true;
+            this.rateButton.Click += new System.EventHandler(this.rateButton_Click);
+            // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,7 +223,7 @@ namespace Trust_Your_Locals
             this.navigate_button.Location = new System.Drawing.Point(13, 12);
             this.navigate_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.navigate_button.Name = "navigate_button";
-            this.navigate_button.Size = new System.Drawing.Size(77, 22);
+            this.navigate_button.Size = new System.Drawing.Size(77, 35);
             this.navigate_button.TabIndex = 8;
             this.navigate_button.Text = "Log in";
             this.navigate_button.UseVisualStyleBackColor = true;
@@ -219,31 +231,19 @@ namespace Trust_Your_Locals
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 39);
+            this.button1.Location = new System.Drawing.Point(13, 52);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 22);
+            this.button1.Size = new System.Drawing.Size(77, 31);
             this.button1.TabIndex = 9;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // rateButton
-            // 
-            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateButton.Location = new System.Drawing.Point(17, 480);
-            this.rateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rateButton.Name = "rateButton";
-            this.rateButton.Size = new System.Drawing.Size(137, 33);
-            this.rateButton.TabIndex = 8;
-            this.rateButton.Text = "Rate seller";
-            this.rateButton.UseVisualStyleBackColor = true;
-            this.rateButton.Click += new System.EventHandler(this.rateButton_Click);
-            // 
             // signOut_Button
             // 
             this.signOut_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signOut_Button.Location = new System.Drawing.Point(13, 12);
+            this.signOut_Button.Location = new System.Drawing.Point(12, 12);
             this.signOut_Button.Name = "signOut_Button";
             this.signOut_Button.Size = new System.Drawing.Size(89, 35);
             this.signOut_Button.TabIndex = 10;

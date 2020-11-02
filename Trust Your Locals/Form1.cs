@@ -13,27 +13,22 @@ namespace Trust_Your_Locals
         private DataDisplayClass dataDisplay;
         public Form1()
         {
-            
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            signOut_Button.Hide(); 
-            addProduct_Button.Hide();
-            rateButton.Hide();
-            dataDisplay = new DataDisplayClass(comboBox1, dgv);
-            if (LoginStatusHandler.isLogged()==true)
+            signOut_Button.Hide();
+            if (LoginStatusHandler.isLogged() == true)
             {
 
                 navigate_button.Hide();
                 button1.Hide();
-                rateButton.Show();
-                addProduct_Button.Show();
                 signOut_Button.Show();
             }
+            dataDisplay = new DataDisplayClass(comboBox1, dgv);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          ComboBoxHandler.HandleComboBox(comboBox1);
+            ComboBoxHandler.HandleComboBox(comboBox1);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,14 +111,23 @@ namespace Trust_Your_Locals
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            if (dgv.CurrentRow.Selected)
+            if (LoginStatusHandler.isLogged() == false)
             {
-                string name = dgv.getSelectedCellValue("Name");
-                string adress = dgv.getSelectedCellValue("Adress");
-                PlaceOrderForm placeOrderForm = new PlaceOrderForm(adress: adress, productName: name);
-                placeOrderForm.Show();
+                this.Visible = false;
+                LoginForm form3 = new LoginForm();
+                form3.Show();
             }
-            else MessageBox.Show("Please select product to order");
+            else
+            {
+                if (dgv.CurrentRow.Selected)
+                {
+                    string name = dgv.getSelectedCellValue("Name");
+                    string adress = dgv.getSelectedCellValue("Adress");
+                    PlaceOrderForm placeOrderForm = new PlaceOrderForm(adress: adress, productName: name);
+                    placeOrderForm.Show();
+                }
+                else MessageBox.Show("Please select product to order");
+            }
         }
         private void viewOrdersClick(object sender, EventArgs e)
         {
@@ -137,8 +141,17 @@ namespace Trust_Your_Locals
 
         private void rateButton_Click(object sender, EventArgs e)
         {
-            RatingForm form_Rate = new RatingForm();
-            form_Rate.ShowDialog();
+            if (LoginStatusHandler.isLogged() == false)
+            {
+                this.Visible = false;
+                LoginForm form3 = new LoginForm();
+                form3.Show();
+            }
+            else
+            {
+                RatingForm form_Rate = new RatingForm();
+                form_Rate.ShowDialog();
+            }
         }
 
         private void signOut_Button_Click(object sender, EventArgs e) 
@@ -152,9 +165,18 @@ namespace Trust_Your_Locals
 
         private void addProduct_Button_Click(object sender, EventArgs e)
         {
-            AddProductForm productForm = new AddProductForm();
-            productForm.Show();
-            this.Close();
+            if (LoginStatusHandler.isLogged() == false)
+            {
+                this.Visible = false;
+                LoginForm form3 = new LoginForm();
+                form3.Show();
+            }
+            else
+            {
+                AddProductForm productForm = new AddProductForm();
+                productForm.Show();
+                this.Visible = false;
+            }
         }
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)

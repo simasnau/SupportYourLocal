@@ -42,7 +42,7 @@ namespace Trust_Your_Locals
                 string query = "INSERT INTO Products ([Shop ID], [Price], [Name], [Product type ID]) VALUES (@id, @price,@name,@pid)";
                 using (SqlCommand cmd = new SqlCommand(query, SQLConnectionHandler.GetConnection()))
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = LoginStatusHandler.getId(); //Temporary set to Jono Ukis(Id:16) defaut as there is no login system at the moment
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = LoginStatusHandler.getId(); 
                     cmd.Parameters.Add("@price", SqlDbType.Money).Value = textBox1.Text;
                     cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = comboBox1.SelectedValue.ToString();
                     cmd.Parameters.Add("@pid", SqlDbType.Int).Value = (int)product;

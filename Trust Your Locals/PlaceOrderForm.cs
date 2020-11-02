@@ -14,6 +14,7 @@ namespace Trust_Your_Locals
 
         public PlaceOrderForm(string productName, string adress)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.productName=productName;
             this.adress=adress;

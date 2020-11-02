@@ -23,6 +23,7 @@ namespace Trust_Your_Locals
 
         public RatingForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             fillCombo(comboBox2);
         }
@@ -162,5 +163,9 @@ namespace Trust_Your_Locals
 
         }
 
+        private void RatingForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
