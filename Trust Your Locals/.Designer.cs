@@ -115,6 +115,7 @@ namespace Trust_Your_Locals
             this.splitContainer1.Panel1.Controls.Add(this.pavadinimas_button);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.txt_pavadinimas);
+            this.splitContainer1.Panel1.Controls.Add(this.rateButton);
             // 
             // splitContainer1.Panel2
             // 
@@ -125,8 +126,8 @@ namespace Trust_Your_Locals
             // 
             // addProduct_Button
             // 
-            this.addProduct_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProduct_Button.Location = new System.Drawing.Point(17, 292);
+            this.addProduct_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addProduct_Button.Location = new System.Drawing.Point(17, 282);
             this.addProduct_Button.Name = "addProduct_Button";
             this.addProduct_Button.Size = new System.Drawing.Size(137, 41);
             this.addProduct_Button.TabIndex = 11;
@@ -136,7 +137,8 @@ namespace Trust_Your_Locals
             // 
             // orderView
             // 
-            this.orderView.Location = new System.Drawing.Point(17, 441);
+            this.orderView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderView.Location = new System.Drawing.Point(17, 408);
             this.orderView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.orderView.Name = "orderView";
             this.orderView.Size = new System.Drawing.Size(137, 54);
@@ -147,7 +149,8 @@ namespace Trust_Your_Locals
             // 
             // orderButton
             // 
-            this.orderButton.Location = new System.Drawing.Point(17, 366);
+            this.orderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderButton.Location = new System.Drawing.Point(17, 337);
             this.orderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(137, 54);
@@ -158,6 +161,7 @@ namespace Trust_Your_Locals
             // 
             // pavadinimas_button
             // 
+            this.pavadinimas_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pavadinimas_button.Location = new System.Drawing.Point(17, 209);
             this.pavadinimas_button.Name = "pavadinimas_button";
             this.pavadinimas_button.Size = new System.Drawing.Size(137, 58);
@@ -226,11 +230,11 @@ namespace Trust_Your_Locals
             // 
             // rateButton
             // 
-            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateButton.Location = new System.Drawing.Point(335, 10);
+            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateButton.Location = new System.Drawing.Point(17, 480);
             this.rateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rateButton.Name = "rateButton";
-            this.rateButton.Size = new System.Drawing.Size(171, 33);
+            this.rateButton.Size = new System.Drawing.Size(137, 33);
             this.rateButton.TabIndex = 8;
             this.rateButton.Text = "Rate seller";
             this.rateButton.UseVisualStyleBackColor = true;
@@ -259,9 +263,9 @@ namespace Trust_Your_Locals
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.rateButton);
             this.Name = "Form1";
             this.Text = "Trust Your Locals";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed_1);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

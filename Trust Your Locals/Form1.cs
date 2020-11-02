@@ -18,11 +18,14 @@ namespace Trust_Your_Locals
             InitializeComponent();
             signOut_Button.Hide(); 
             addProduct_Button.Hide();
+            rateButton.Hide();
             dataDisplay = new DataDisplayClass(comboBox1, dgv);
             if (LoginStatusHandler.isLogged()==true)
             {
+
                 navigate_button.Hide();
                 button1.Hide();
+                rateButton.Show();
                 addProduct_Button.Show();
                 signOut_Button.Show();
             }
@@ -157,6 +160,11 @@ namespace Trust_Your_Locals
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             //Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
