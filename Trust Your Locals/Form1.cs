@@ -54,7 +54,6 @@ namespace Trust_Your_Locals
             WebResponse response;
             List<Pin> pinList= new List<Pin>();
             List<string> adressList = new List<string>();
-            StreamWriter file = new StreamWriter("locations.js");
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
@@ -75,23 +74,16 @@ namespace Trust_Your_Locals
 
                     Pin pin = new Pin
                     {
-                        name = name,
-                        lat = lat.Value,
-                        lng = lng.Value
+                        Name = name,
+                        Lat = lat.Value,
+                        Lng = lng.Value
                     };
                     pinList.Add(pin);
                 }
-                
-                
+               
             }
-            file.Write("locations=[");
-            foreach(Pin pin in pinList)
-            {
-                file.Write("[\""+pin.name+"\","+pin.lat+","+pin.lng+"],");
-            }
-            file.Write("[]]");
 
-            file.Close();
+            WritePinsToFile(pinList, new StreamWriter("locations.js"));
         }
 
         private void navigate_button_Click(object sender, EventArgs e)
@@ -187,6 +179,18 @@ namespace Trust_Your_Locals
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void WritePinsToFile(List<Pin> pinList, StreamWriter file)
+        {
+            file.Write("locations=[");
+            foreach (Pin pin in pinList)
+            {
+                file.Write("[\"" + pin.Name + "\"," + pin.Lat + "," + pin.Lng + "],");
+            }
+            file.Write("[]]");
+
+            file.Close();
         }
     }
 }
