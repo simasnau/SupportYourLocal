@@ -50,12 +50,19 @@ namespace Trust_Your_Locals
                 LoginStatusHandler.loggedIn(Int16.Parse(id));
                 Form1 form1 = new Form1();
                 form1.Show();
-                this.Hide();
+                this.Close();
             }
             else
                 MessageBox.Show("Invalid username or password");
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.Show();
+            this.Close();
         }
     }
 }
