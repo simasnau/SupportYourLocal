@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Windows.Input;
 using SYL_Mobile.Models;
 using SYL_Mobile.Services;
+using System.Text.Json;
+using Trust_Your_Locals;
 using Xamarin.Forms;
 
 namespace SYL_Mobile.ViewModels
@@ -11,10 +14,17 @@ namespace SYL_Mobile.ViewModels
     public class NewItemViewModel : BaseViewModel
     {
         private string text;
-        private string description;
+        public List<string> ProductEnum { get; }
 
-        public NewItemViewModel()
+        public Picker picker { get; }
+
+
+        public NewItemViewModel(Picker p)
         {
+            picker = p;
+
+            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
+
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
@@ -24,7 +34,7 @@ namespace SYL_Mobile.ViewModels
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+                && picker.SelectedItem != null;
         }
 
         public string Text
@@ -33,12 +43,7 @@ namespace SYL_Mobile.ViewModels
             set => SetProperty(ref text, value);
         }
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
-
+       
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
 
@@ -50,16 +55,16 @@ namespace SYL_Mobile.ViewModels
 
         private async void OnSave()
         {
-            Product newItem = new Product()
+            var product = new FormUrlEncodedContent(new[]
             {
-                Id = Guid.NewGuid().ToString(),
-                name = Text,
-                adress = Description
-            };
+                new KeyValuePair<string, string>("shopID", 23.ToString()),   // user.getId
+                new KeyValuePair<string, string>("price", text),
+                new KeyValuePair<string, string>("name", picker.SelectedItem.ToString()),
+                new KeyValuePair<string, string>("pID", (picker.SelectedIndex+1).ToString())
+            });
 
-            //await new MockDataStore().AddProductAsync(newItem);
-
-            // This will pop the current page off the navigation stack
+            await ProductService.AddProductAsync(product);
+           
             await Shell.Current.GoToAsync("..");
         }
     }

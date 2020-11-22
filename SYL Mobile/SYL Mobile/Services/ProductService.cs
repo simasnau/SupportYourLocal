@@ -20,8 +20,12 @@ namespace SYL_Mobile.Services
             return productList;
         }
 
-        public static async Task<bool> AddProductAsync(Product Product)
+        public static async Task<bool> AddProductAsync(FormUrlEncodedContent product)
         {
+            var url = "https://syl.azurewebsites.net/product/add";
+            var client = new HttpClient();
+            var response = await client.PostAsync(url, product);
+
             return await Task.FromResult(true);
         }
 

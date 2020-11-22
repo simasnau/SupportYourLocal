@@ -29,7 +29,7 @@ namespace SYL_Mobile.ViewModels
             Products = new ObservableCollection<Product>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-
+            AddItemCommand = new Command(OnAddItem);
             ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
         }
 
@@ -70,7 +70,7 @@ namespace SYL_Mobile.ViewModels
 
         private async void OnAddItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            await App.Current.MainPage.Navigation.PushAsync(new NewItemPage());
         }
 
     }
