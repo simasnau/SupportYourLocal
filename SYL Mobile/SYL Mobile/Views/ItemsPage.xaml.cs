@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using SYL_Mobile.ViewModels;
+using SYL.Mobile.ViewModels;
 
 namespace SYL_Mobile.Views
 {
@@ -32,6 +33,11 @@ namespace SYL_Mobile.Views
             string text = searchBar.Text.ToLower();
             var searchResult=_viewModel.Products.Where(c => (c.name.ToLower().Contains(text) || c.sellerName.ToLower().Contains(text)));
             ItemsListView.ItemsSource = searchResult;
+        }
+
+        private async void ShowMapClicked(object sender, EventArgs e)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new MapPage(ItemsListView.ItemsSource));
         }
     }
 }
