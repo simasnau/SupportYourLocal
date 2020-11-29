@@ -13,7 +13,7 @@
             <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
             
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Cancel"  HorizontalOptions="FillAndExpand" Clicked="CancelClicked"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>

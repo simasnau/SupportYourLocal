@@ -19,6 +19,7 @@ namespace SYL_Mobile.ViewModels
         public Picker picker { get; }
 
 
+
         public NewItemViewModel(Picker p)
         {
             picker = p;
@@ -29,6 +30,8 @@ namespace SYL_Mobile.ViewModels
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
+
+           
         }
 
         private bool ValidateSave()

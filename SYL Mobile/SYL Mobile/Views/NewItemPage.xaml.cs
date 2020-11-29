@@ -13,10 +13,23 @@ namespace SYL_Mobile.Views
     {
         public Product product { get; set; }
 
+        public delegate void Cancel();
+        Cancel onCancel = delegate
+        {
+            Shell.Current.GoToAsync("..");
+        };
+
+
         public NewItemPage()
         {
             InitializeComponent();
             BindingContext = new NewItemViewModel(picker);
+
+        }
+
+        private void CancelClicked(object sender, EventArgs e)
+        {
+            onCancel();
         }
     }
 }

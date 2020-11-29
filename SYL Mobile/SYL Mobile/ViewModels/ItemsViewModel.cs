@@ -15,10 +15,7 @@ namespace SYL_Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Product _selectedProduct;
-
         public ObservableCollection<Product> Products { get; set; }
-        public List<string> ProductEnum { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<Product> ItemTapped { get; }
@@ -29,8 +26,8 @@ namespace SYL_Mobile.ViewModels
             Products = new ObservableCollection<Product>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            AddItemCommand = new Command(OnAddItem);
-            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
+            AddItemCommand = new Command( async () => await App.Current.MainPage.Navigation.PushAsync(new NewItemPage()));
+
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -56,21 +53,6 @@ namespace SYL_Mobile.ViewModels
         public void OnAppearing()
         {
             IsBusy = true;
-            SelectedItem = null;
-        }
-
-        public Product SelectedItem
-        {
-            get => _selectedProduct;
-            set
-            {
-                SetProperty(ref _selectedProduct, value);
-            }
-        }
-
-        private async void OnAddItem(object obj)
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new NewItemPage());
         }
 
     }
