@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SYL_Mobile.Views.Orders"
-             Title="{Binding Title}"
+             Title="My orders"
              xmlns:local="clr-namespace:SYL_Mobile.ViewModels"  
              xmlns:model="clr-namespace:SYL_Mobile.Models"  
              x:Name="BrowseOrders">
@@ -18,7 +18,7 @@
         <RefreshView x:DataType="local:OrderViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
             <CollectionView x:Name="OrdersListView"
                 ItemsSource="{Binding Orders}"
-                SelectionMode="Single">
+                SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:Order">
