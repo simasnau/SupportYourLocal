@@ -11,7 +11,6 @@ namespace SYL_Mobile.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        //public Product product { get; set; }
 
         public delegate void Cancel();
         Cancel onCancel = delegate

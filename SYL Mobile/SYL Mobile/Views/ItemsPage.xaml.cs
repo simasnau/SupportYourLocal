@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using SYL_Mobile.ViewModels;
 using SYL.Mobile.ViewModels;
+using SYL_Mobile.Models;
 
 namespace SYL_Mobile.Views
 {
@@ -37,6 +38,12 @@ namespace SYL_Mobile.Views
         private async void ShowMapClicked(object sender, EventArgs e)
         {
             await App.Current.MainPage.Navigation.PushAsync(new MapPage(ItemsListView.ItemsSource));
+        }
+
+        private async void OrderItemClicked(object sender, EventArgs e)
+        {
+            if (ItemsListView.SelectedItem == null) await DisplayAlert("No product selected", "Please select a product by clicking on it", "OK");
+            else await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage((Product)ItemsListView.SelectedItem));
         }
     }
 }

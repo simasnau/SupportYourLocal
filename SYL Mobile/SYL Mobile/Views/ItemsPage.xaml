@@ -9,7 +9,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-        <ToolbarItem Text="Order item" Command="{Binding OrderItemCommand}" />
+        <ToolbarItem Text="Order item"  Clicked="OrderItemClicked" />
         <ToolbarItem Text="Show On Map" Clicked="ShowMapClicked"/>
     </ContentPage.ToolbarItems>
     <!--

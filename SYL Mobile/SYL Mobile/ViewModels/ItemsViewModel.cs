@@ -18,10 +18,8 @@ namespace SYL_Mobile.ViewModels
 
         public ObservableCollection<Product> Products { get; set; }
 
-        public List<string> ProductEnum { get; }
         public Command LoadItemsCommand { get;  }
         public Command AddItemCommand { get; }
-        public Command OrderItemCommand { get; }
         public Command<Product> ItemTapped { get; }
         private Product _selectedProd { get; set; }
         public Product SelectedProduct {  
@@ -31,17 +29,12 @@ namespace SYL_Mobile.ViewModels
 
         public ItemsViewModel()
         {
-            
-
-            Title = "Browse";
+            Title = "Products";
             Products = new ObservableCollection<Product>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            AddItemCommand = new Command(OnAddItem);
-            // if (ItemsPage.SelectedItem != null)
+            AddItemCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new NewItemPage()));
 
-            OrderItemCommand = new Command(OrderItem);
-            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
         }
         
 
@@ -80,21 +73,6 @@ namespace SYL_Mobile.ViewModels
             {
                 SetProperty(ref _selectedProduct, value);
             }
-        }
-
-        private async void OnAddItem(object obj)
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new NewItemPage());
-        }
-        private async void OrderItem(object obj)
-        {
-            if (_selectedProd == null)
-            {
-                Page page = new Page();
-                await page.DisplayAlert("No product selected", "Please select a product by clicking on it", "OK");
-
-            }
-            else await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(_selectedProd));
         }
 
     }
