@@ -9,8 +9,7 @@
                Text="Selected product: " />
             <Label Text="Select the time to pick up your product." />
             <TimePicker x:Name="_timePicker"
-                    PropertyChanged="_timePicker_PropertyChanged"    
-                    Time="11:00"
+                    Time="{Binding Time}"
                     Format="t"
                     />
             <StackLayout Orientation="Horizontal"/>

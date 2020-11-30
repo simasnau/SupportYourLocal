@@ -17,35 +17,15 @@ namespace SYL_Mobile.Views
         
         public ItemsPage()
         {
-            
             InitializeComponent();
             BindingContext = _viewModel = new ItemsViewModel();
-            //ItemsListView.SelectionChanged += OnCollectionViewSelectionChanged;
-            
         }
        
-     
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-//        void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
-//        {
-//            string previous = (e.PreviousSelection.FirstOrDefault() as Models.Product)?.name;
-//            var current = e.CurrentSelection;
-//            string msg = String.Empty;
-//            msg = "Selected Products:\n";
-//            for (int i=0; i < current.Count; i++)
-//            {
-//                var product = current[i] as Models.Product;
-//                msg += $"{product.name } ({product.Id})";
-//                returnedProduct += $"{product.name}";
-
-//            }
-//            //DisplayAlert("Demo", msg, "Ok");
-            
-//}
 
         private void searchBarTextChanged(object sender, TextChangedEventArgs e)
         {

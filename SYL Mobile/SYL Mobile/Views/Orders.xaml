@@ -15,7 +15,7 @@
     <StackLayout>
        
 
-        <RefreshView x:DataType="local:OrderViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <RefreshView x:DataType="local:OrderViewModel" Command="{Binding LoadOrdersCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
             <CollectionView x:Name="OrdersListView"
                 ItemsSource="{Binding Orders}"
                 SelectionMode="None">

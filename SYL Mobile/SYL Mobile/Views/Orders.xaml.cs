@@ -26,12 +26,5 @@ public partial class Orders : ContentPage
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-        //private void searchBarTextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    string text = searchBar.Text.ToLower();
-        //    var searchResult = _viewModel.Products.Where(c => (c.name.ToLower().Contains(text) || c.sellerName.ToLower().Contains(text)));
-        //    OrderListView.ItemsSource = searchResult;
-        //}
-
     }
 }

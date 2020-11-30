@@ -18,39 +18,16 @@ namespace SYL_Mobile.ViewModels
 
         public ObservableCollection<Order> Orders { get; set; }
 
-        public List<string> ProductEnum { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command OrderItemCommand { get; }
-        public Command<Product> ItemTapped { get; }
-        private Product _selectedProd { get; set; }
-        public Product SelectedProduct
-        {
-            get { return _selectedProd; }
-            set
-            {
-                if (_selectedProd != value)
-                { _selectedProd = value; }
-            }
-        }
+        public Command LoadOrdersCommand { get; }       
 
         public OrderViewModel()
         {
-
-
-            Title = "Browse";
             Orders = new ObservableCollection<Order>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            //AddItemCommand = new Command(OnAddItem);
-            // if (ItemsPage.SelectedItem != null)
-
-            //OrderItemCommand = new Command(OrderItem);
-           // ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
+            LoadOrdersCommand = new Command(async () => await ExecuteLoadOrdersCommand());
         }
 
 
-        async Task ExecuteLoadItemsCommand()
+        async Task ExecuteLoadOrdersCommand()
         {
             IsBusy = true;
             try
@@ -86,10 +63,6 @@ namespace SYL_Mobile.ViewModels
                 SetProperty(ref _selectedOrder, value);
             }
         }
-
-        
-        
-
     
 }
 }

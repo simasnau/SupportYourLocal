@@ -15,32 +15,14 @@ namespace SYL_Mobile.ViewModels
     public class AddOrderViewModel : BaseViewModel
     {
       
+        private string quantity;
+        public Product product;
 
-        private string text;
-        public static Product product;
-        public String time;
+        public TimeSpan Time { get; set; }
         
-        public String quantity;
-
-        public List<string> ProductEnum { get; }
-
-        public AddOrderViewModel(Product sell)
+        public AddOrderViewModel(Product product)
         {
-            product = sell;
-
-            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
-
-            SaveCommand = new Command(OnSave, ValidateSave);
-            CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
-        }
-        public AddOrderViewModel(Product sell, TimePicker timePicker)
-        {
-            time = timePicker.Time.ToString();
-            product = sell;
-
-            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
+            this.product = product;
 
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
@@ -51,14 +33,14 @@ namespace SYL_Mobile.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
+            return !String.IsNullOrWhiteSpace(quantity)
                 && product != null;
         }
 
         public string Text
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => quantity;
+            set => SetProperty(ref quantity, value);
         }
 
 
@@ -77,14 +59,11 @@ namespace SYL_Mobile.ViewModels
             var order = new FormUrlEncodedContent(new[]
             {                
                 new KeyValuePair<string, string>("name", product.name),
-                new KeyValuePair<string, string>("time", time.Substring(0, 5)),
-                new KeyValuePair<string, string>("quantity", text),
+                new KeyValuePair<string, string>("time", Time.ToString().Substring(0, 5)),
+                new KeyValuePair<string, string>("quantity", quantity),
                 new KeyValuePair<string, string>("bID", 4.ToString()),   // user.getId
                 new KeyValuePair<string, string>("sID", sID.ToString())
-            });
-            
-            //Debug.WriteLine(product.name + " " + time.Substring(0, 5) + " " + text + " " + 4.ToString() + " " + sID.ToString());
-            
+            });            
             
             await ProductService.AddOrderAsync(order);
 
