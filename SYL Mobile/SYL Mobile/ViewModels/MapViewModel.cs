@@ -18,16 +18,11 @@ namespace SYL.Mobile.ViewModels
 {
         private IEnumerable<Product> currentProducts;
 
-        private List<Pin> Pins;
-
         private Xamarin.Forms.Maps.Map map;
 
         public MapViewModel(Xamarin.Forms.Maps.Map map, IEnumerable itemsSource)
         {
-            Pins = new List<Pin>();
-
             this.map = map;
-
 
             currentProducts = (IEnumerable<Product>)itemsSource;
 
@@ -50,6 +45,20 @@ namespace SYL.Mobile.ViewModels
 
                 });
             }
+
+            double south = map.Pins.Min(pin => pin.Position.Latitude);
+            double north = map.Pins.Max(pin => pin.Position.Latitude);
+            double west = map.Pins.Min(pin => pin.Position.Longitude);
+            double east = map.Pins.Max(pin => pin.Position.Longitude);
+
+            Position center = new Position((south + north) / 2, (west + east) / 2);
+
+            Distance latidudinal = Distance.BetweenPositions(new Position(north, center.Longitude), new Position(south, center.Longitude));
+            Distance longitudinal = Distance.BetweenPositions(new Position(center.Latitude, west), new Position(center.Latitude, east));
+
+
+            Distance radius = (latidudinal.Kilometers > longitudinal.Kilometers) ? latidudinal : longitudinal;
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(center, radius));
 
         }
     }
