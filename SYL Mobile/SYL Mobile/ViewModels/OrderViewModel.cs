@@ -14,9 +14,9 @@ namespace SYL_Mobile.ViewModels
 {
     class OrderViewModel : BaseViewModel
 {
-        private Product _selectedProduct;
+        private Order _selectedOrder;
 
-        public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Order> Orders { get; set; }
 
         public List<string> ProductEnum { get; }
         public Command LoadItemsCommand { get; }
@@ -39,14 +39,14 @@ namespace SYL_Mobile.ViewModels
 
 
             Title = "Browse";
-            Products = new ObservableCollection<Product>();
+            Orders = new ObservableCollection<Order>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            AddItemCommand = new Command(OnAddItem);
+            //AddItemCommand = new Command(OnAddItem);
             // if (ItemsPage.SelectedItem != null)
 
-            OrderItemCommand = new Command(OrderItem);
-            ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
+            //OrderItemCommand = new Command(OrderItem);
+           // ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
         }
 
 
@@ -55,9 +55,9 @@ namespace SYL_Mobile.ViewModels
             IsBusy = true;
             try
             {
-                var products = await ProductService.GetProductsAsync(true);
-                Products.Clear();
-                foreach (var product in products) Products.Add(product);
+                var orders = await ProductService.GetOrdersAsync(true);
+                Orders.Clear();
+                foreach (var order in orders) Orders.Add(order);
 
             }
             catch (Exception ex)
@@ -77,30 +77,18 @@ namespace SYL_Mobile.ViewModels
             SelectedItem = null;
         }
 
-        public Product SelectedItem
+        public Order SelectedItem
         {
 
-            get => _selectedProduct;
+            get => _selectedOrder;
             set
             {
-                SetProperty(ref _selectedProduct, value);
+                SetProperty(ref _selectedOrder, value);
             }
         }
 
-        private async void OnAddItem(object obj)
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new NewItemPage());
-        }
-        private async void OrderItem(object obj)
-        {
-            if (_selectedProd == null)
-            {
-                Page page = new Page();
-                await page.DisplayAlert("No product selected", "Please select a product by clicking on it", "OK");
-
-            }
-            else await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(_selectedProd));
-        }
+        
+        
 
     
 }

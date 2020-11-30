@@ -21,12 +21,12 @@ namespace SYL_Mobile.Services
             //Debug.WriteLine("responsanas: lo" + response);
             return productList;
         }
-        public static async Task<IEnumerable<Product>> loadOrders()
+        public static async Task<IEnumerable<Order>> loadOrders()
         {
             HttpClient client = new HttpClient();
             string url = "https://syl.azurewebsites.net/order/4";
             string response = await client.GetStringAsync(url);
-            var orderList = JsonSerializer.Deserialize<List<Product>>(response);
+            var orderList = JsonSerializer.Deserialize<List<Order>>(response);
             //Debug.WriteLine("responsanas: lo" + response);
             return orderList;
         }
@@ -51,7 +51,7 @@ namespace SYL_Mobile.Services
 
         public static async Task<bool> AddOrderAsync(FormUrlEncodedContent order)
         {
-            var url = "https://syl.azurewebsites.net/order/addOrder";
+            var url = "https://syl.azurewebsites.net/order/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, order);
             //Debug.WriteLine("responsas: " + response);
@@ -62,7 +62,7 @@ namespace SYL_Mobile.Services
         {
             return await loadProducts();
         }
-        public static async Task<IEnumerable<Product>> GetOrdersAsync(bool forceRefresh = false)
+        public static async Task<IEnumerable<Order>> GetOrdersAsync(bool forceRefresh = false)
         {
             return await loadOrders();
         }

@@ -13,12 +13,12 @@ namespace SYL_Mobile.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class Orders : ContentPage
 {
-        ItemsViewModel _viewModel;
+        OrderViewModel _viewModel;
 
         public Orders()
         {
         InitializeComponent();
-        BindingContext = _viewModel = new ItemsViewModel();
+        BindingContext = _viewModel = new OrderViewModel();
 
         }
         protected override void OnAppearing()
