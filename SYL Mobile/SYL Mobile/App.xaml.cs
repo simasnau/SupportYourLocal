@@ -14,6 +14,7 @@ namespace SYL_Mobile
             InitializeComponent();
 
             //DependencyService.Register<MockDataStore>();
+           
             MainPage = new AppShell();
         }
 

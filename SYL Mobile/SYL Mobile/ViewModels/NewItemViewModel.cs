@@ -18,7 +18,6 @@ namespace SYL_Mobile.ViewModels
 
         public Picker picker { get; }
 
-
         public NewItemViewModel(Picker p)
         {
             picker = p;

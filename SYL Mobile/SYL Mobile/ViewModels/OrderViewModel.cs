@@ -12,26 +12,31 @@ using SYL_Mobile.Services;
 
 namespace SYL_Mobile.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
-    {
+    class OrderViewModel : BaseViewModel
+{
         private Product _selectedProduct;
 
         public ObservableCollection<Product> Products { get; set; }
 
         public List<string> ProductEnum { get; }
-        public Command LoadItemsCommand { get;  }
+        public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command OrderItemCommand { get; }
         public Command<Product> ItemTapped { get; }
         private Product _selectedProd { get; set; }
-        public Product SelectedProduct {  
-            get { return _selectedProd; } 
-            set { if (_selectedProd != value) 
-                { _selectedProd = value; } } }
-
-        public ItemsViewModel()
+        public Product SelectedProduct
         {
-            
+            get { return _selectedProd; }
+            set
+            {
+                if (_selectedProd != value)
+                { _selectedProd = value; }
+            }
+        }
+
+        public OrderViewModel()
+        {
+
 
             Title = "Browse";
             Products = new ObservableCollection<Product>();
@@ -43,7 +48,7 @@ namespace SYL_Mobile.ViewModels
             OrderItemCommand = new Command(OrderItem);
             ProductEnum = new List<string>(Enum.GetNames(typeof(ProductEnum)));
         }
-        
+
 
         async Task ExecuteLoadItemsCommand()
         {
@@ -51,9 +56,9 @@ namespace SYL_Mobile.ViewModels
             try
             {
                 var products = await ProductService.GetProductsAsync(true);
-                Products.Clear();               
-               foreach (var product in products) Products.Add(product);
-                              
+                Products.Clear();
+                foreach (var product in products) Products.Add(product);
+
             }
             catch (Exception ex)
             {
@@ -67,14 +72,14 @@ namespace SYL_Mobile.ViewModels
 
         public void OnAppearing()
         {
-            
+
             IsBusy = true;
             SelectedItem = null;
         }
 
         public Product SelectedItem
         {
-            
+
             get => _selectedProduct;
             set
             {
@@ -97,5 +102,6 @@ namespace SYL_Mobile.ViewModels
             else await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(_selectedProd));
         }
 
-    }
+    
+}
 }
