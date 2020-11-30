@@ -55,7 +55,7 @@ namespace SYL_Mobile.ViewModels
 
         private async void OnSave()
         {
-            int sID = await ProductService.getSellerId(product.sellerName);
+            int sID = await OrderService.getSellerId(product.sellerName);
             var order = new FormUrlEncodedContent(new[]
             {                
                 new KeyValuePair<string, string>("name", product.name),
@@ -65,7 +65,7 @@ namespace SYL_Mobile.ViewModels
                 new KeyValuePair<string, string>("sID", sID.ToString())
             });            
             
-            await ProductService.AddOrderAsync(order);
+            await OrderService.AddOrderAsync(order);
 
             await Shell.Current.GoToAsync("..");
         }

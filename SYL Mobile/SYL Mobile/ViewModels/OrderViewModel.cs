@@ -32,7 +32,7 @@ namespace SYL_Mobile.ViewModels
             IsBusy = true;
             try
             {
-                var orders = await ProductService.GetOrdersAsync(true);
+                var orders = await OrderService.GetOrdersAsync(true);
                 Orders.Clear();
                 foreach (var order in orders) Orders.Add(order);
 
