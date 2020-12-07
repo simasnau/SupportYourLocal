@@ -9,5 +9,8 @@ namespace SYL_Mobile.Models
         public string adress { get; set; }
         public double price { get; set; }
         public string sellerName { get; set; }
+
+        public double distance { get; set; }
+
     }
 }

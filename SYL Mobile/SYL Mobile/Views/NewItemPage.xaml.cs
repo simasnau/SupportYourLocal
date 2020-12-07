@@ -19,6 +19,7 @@ namespace SYL_Mobile.Views
         };
 
 
+
         public NewItemPage()
         {
             InitializeComponent();

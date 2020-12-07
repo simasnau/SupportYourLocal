@@ -40,10 +40,5 @@ namespace SYL_Mobile.Views
             await App.Current.MainPage.Navigation.PushAsync(new MapPage(ItemsListView.ItemsSource));
         }
 
-        private async void OrderItemClicked(object sender, EventArgs e)
-        {
-            if (ItemsListView.SelectedItem == null) await DisplayAlert("No product selected", "Please select a product by clicking on it", "OK");
-            else await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage((Product)ItemsListView.SelectedItem));
-        }
     }
 }

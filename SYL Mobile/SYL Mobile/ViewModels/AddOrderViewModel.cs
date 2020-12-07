@@ -9,6 +9,7 @@ using System.Text.Json;
 using Trust_Your_Locals;
 using Xamarin.Forms;
 using System.Diagnostics;
+using SYL_Mobile.Views;
 
 namespace SYL_Mobile.ViewModels
 {
@@ -49,8 +50,7 @@ namespace SYL_Mobile.ViewModels
 
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await App.Current.MainPage.Navigation.PopToRootAsync();         
         }
 
         private async void OnSave()
@@ -67,7 +67,7 @@ namespace SYL_Mobile.ViewModels
             
             await OrderService.AddOrderAsync(order);
 
-            await Shell.Current.GoToAsync("..");
+            await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
     }

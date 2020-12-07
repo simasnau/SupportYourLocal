@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SYL_Mobile.Views.ProductPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image Source="https://previews.123rf.com/images/romastudio/romastudio1607/romastudio160700075/59843419-strawberry-on-the-market-high-resolution-product-.jpg"
+                   Aspect="AspectFill"
+                   />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Distance: "
+                    VerticalOptions="CenterAndExpand" />
+
+                <Label Text="{Binding Distance}"/>
+
+                <Label x:Name="priceLabel" 
+                    Text="{Binding Price}"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="End"/>
+                
+                
+            </StackLayout>
+
+            <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"/>
+            
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="{Binding sellerName}"
+                       FontAttributes="Bold"/>
+
+                <Label Text="Here should be seller rating"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="End"/>
+
+
+            </StackLayout>
+
+            <Button x:Name="orderButton"
+                BackgroundColor="Green"
+                Text="Reserve for pick-up"
+                Command="{Binding PlaceOrderCommand}"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
