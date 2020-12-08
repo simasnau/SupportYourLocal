@@ -2,6 +2,7 @@
 using SYL_Mobile.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using Xamarin.Essentials;
@@ -41,11 +42,24 @@ namespace SYL_Mobile.ViewModels
 
         async void UpdateDistance()
         {
-            var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
-            var location = await Geolocation.GetLocationAsync(request, new CancellationTokenSource().Token);
-            var curPos = new Position(location.Latitude, location.Longitude);
-            Distance = Convert.ToString(Math.Round(Xamarin.Forms.Maps.Distance.BetweenPositions(position, curPos).Kilometers, 2))+" km";
+            try
+            {
+                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
+                var location = await Geolocation.GetLocationAsync(request, new CancellationTokenSource().Token);
+                var curPos = new Position(location.Latitude, location.Longitude);
+                Distance = Convert.ToString(Math.Round(Xamarin.Forms.Maps.Distance.BetweenPositions(position, curPos).Kilometers, 2)) + " km";
+            }
+            catch (PermissionException e)
+            {
+                Distance = "Unable to get distance.";
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
 
+
+            
         }
 
 
