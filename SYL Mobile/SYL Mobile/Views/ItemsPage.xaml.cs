@@ -11,8 +11,10 @@ using SYL_Mobile.Models;
 
 namespace SYL_Mobile.Views
 {
+    
     public partial class ItemsPage : ContentPage
     {
+        Func<String, int> c = (x) => { return Convert.ToInt32(x);  };
         ItemsViewModel _viewModel;
         public String returnedProduct="products: "; 
         

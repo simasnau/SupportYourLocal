@@ -14,7 +14,7 @@ namespace SYL_Mobile.ViewModels
 {
     class OrderViewModel : BaseViewModel
 {
-        private Order _selectedOrder;
+        private Lazy<Order> _selectedOrder;
 
         public ObservableCollection<Order> Orders { get; set; }
 
@@ -54,7 +54,7 @@ namespace SYL_Mobile.ViewModels
             SelectedItem = null;
         }
 
-        public Order SelectedItem
+        public Lazy<Order> SelectedItem
         {
 
             get => _selectedOrder;
