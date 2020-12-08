@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using SYL_Mobile.ViewModels;
 using SYL.Mobile.ViewModels;
 using SYL_Mobile.Models;
+using System.Diagnostics;
 
 namespace SYL_Mobile.Views
 {
@@ -21,7 +22,7 @@ namespace SYL_Mobile.Views
             InitializeComponent();
             BindingContext = _viewModel = new ItemsViewModel();
         }
-       
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -37,7 +38,7 @@ namespace SYL_Mobile.Views
 
         private async void ShowMapClicked(object sender, EventArgs e)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new MapPage(ItemsListView.ItemsSource));
+            await App.Current.MainPage.Navigation.PushAsync(new MapPage(ItemsListView.ItemsSource, searchBar));
         }
 
     }

@@ -18,10 +18,10 @@ public partial class MapPage : ContentPage
 {
         MapViewModel mapModel;
 
-        public MapPage(IEnumerable itemsSource)
+        public MapPage(IEnumerable itemsSource, SearchBar searchBar)
         {
             InitializeComponent();
-            BindingContext = mapModel = new MapViewModel(map, itemsSource);
+            BindingContext = mapModel = new MapViewModel(map, itemsSource, searchBar);
         }
 
         public MapPage()
