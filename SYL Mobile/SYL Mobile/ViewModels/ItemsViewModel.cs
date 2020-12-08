@@ -60,45 +60,46 @@ namespace SYL_Mobile.ViewModels
                 }                
             });
 
-            
-
         }
-
-
-       
-
-
 
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
+            Location location;
+            IEnumerable<Product> products=new List<Product>();
             try
             {
-                var products = await ProductService.GetProductsAsync(true);
-                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
-                var location = await Geolocation.GetLocationAsync(request, new CancellationTokenSource().Token);
-                var curPos = new Position(location.Latitude, location.Longitude);
-
+                products = await ProductService.GetProductsAsync(true);
                 List<string> adressList = products.Select(x => x.adress).Distinct().ToList();
+                adressCoordinates.Clear();
                 foreach (var adress in adressList) adressCoordinates.Add(adress, await MapService.getCoordinates(adress));
 
-                Products.Clear();
-
-                foreach (var product in products) {
-                    var pos = adressCoordinates[product.adress];
-                    product.distance = Math.Round(Distance.BetweenPositions(pos, curPos).Kilometers,2);
-                    Products.Add(product);
-                }
-
+                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
+                location = await Geolocation.GetLocationAsync(request, new CancellationTokenSource().Token);
+            }
+            catch (PermissionException e)
+            {
+                location = null;
+                Debug.WriteLine(e);
             }
             catch (Exception ex)
             {
+                location = null;
                 Debug.WriteLine(ex);
             }
             finally
             {
                 IsBusy = false;
             }
+            Products.Clear();
+            foreach (var product in products) {
+                var pos = adressCoordinates[product.adress];
+                if (location == null) product.distance = 0;
+                else product.distance = Math.Round(Distance.BetweenPositions(pos, new Position(location.Latitude, location.Longitude)).Kilometers,2);
+                Products.Add(product);
+            }
+
+            
         }
 
         public void OnAppearing()

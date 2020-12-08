@@ -10,6 +10,11 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
         <ToolbarItem Text="Show On Map" Clicked="ShowMapClicked"/>
+        <ToolbarItem Text="Sort By"
+                 Order="Secondary"
+                 Priority="0" 
+                 Clicked="SortByClicked"/>
+       
     </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.

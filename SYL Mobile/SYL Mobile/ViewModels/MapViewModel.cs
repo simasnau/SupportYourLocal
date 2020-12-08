@@ -1,4 +1,5 @@
 ﻿using SYL.Mobile.Services;
+using SYL_Mobile;
 using SYL_Mobile.Models;
 using System;
 using System.Collections;
@@ -22,10 +23,12 @@ namespace SYL.Mobile.ViewModels
 
         private Xamarin.Forms.Maps.Map map;
 
-        public MapViewModel(Xamarin.Forms.Maps.Map map, IEnumerable itemsSource)
+        private SearchBar sB;
+
+        public MapViewModel(Xamarin.Forms.Maps.Map map, IEnumerable itemsSource, SearchBar searchBar)
         {
             this.map = map;
-
+            sB = searchBar;
             currentProducts = (IEnumerable<Product>)itemsSource;
 
             ExecuteLoadPinsCommand();
@@ -46,6 +49,15 @@ namespace SYL.Mobile.ViewModels
                     Position=await MapService.getCoordinates(adress)
 
                 });
+            }
+
+            foreach (Pin pin in map.Pins)
+            {
+                pin.InfoWindowClicked += async (obj, args) =>
+                {
+                    sB.Text = ((Pin)obj).Label;
+                    await App.Current.MainPage.Navigation.PopToRootAsync();
+                };
             }
 
             double south = map.Pins.Min(pin => pin.Position.Latitude);
