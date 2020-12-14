@@ -31,7 +31,7 @@
 
             <StackLayout Orientation="Horizontal">
 
-                <Label Text="{Binding sellerName}"
+                <Label x:Name="selleris" Text="{Binding sellerName}"
                        FontAttributes="Bold"/>
 
                 <Label Text="Here should be seller rating"
@@ -45,6 +45,14 @@
                 BackgroundColor="Green"
                 Text="Reserve for pick-up"
                 Command="{Binding PlaceOrderCommand}"/>
+            <Button x:Name="reviewButton"
+                BackgroundColor="Green"
+                Text="Rate this seller"
+                Command="{Binding PlaceReviewCommand}"/>
+            <Button x:Name="checkReviewButton"
+                BackgroundColor="Green"
+                Text="Check rating"
+                Command="{Binding CheckReviewCommand}"/>
 
 
         </StackLayout>

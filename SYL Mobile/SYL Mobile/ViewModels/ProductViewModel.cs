@@ -28,6 +28,10 @@ namespace SYL_Mobile.ViewModels
 
         public Command PlaceOrderCommand { get; set; }
 
+        public Command CheckReviewCommand { get; set; }
+
+        public Command PlaceReviewCommand { get; set; }
+
         public ProductViewModel(Product p, Position pos)
         {
             position = pos;
@@ -35,6 +39,8 @@ namespace SYL_Mobile.ViewModels
             Distance = p.distance + " km";
             sellerName = p.sellerName;
             PlaceOrderCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(p)));
+            PlaceReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new AddReviewPage (p)));
+            CheckReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new Reviews(p)));
 
             var timer = new Timer((e) => UpdateDistance(), null, TimeSpan.Zero, TimeSpan.FromSeconds(5)); 
 

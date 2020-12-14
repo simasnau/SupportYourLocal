@@ -8,8 +8,8 @@
             <Label x:Name="_label"
                Text="Selected product: " />
             <Label Text="Select the time to pick up your product." />
-            <TimePicker x:Name="_timePicker"
-                    Time="{Binding Time}"
+            <TimePicker x:Name="_timePicker"  
+                Time="{Binding Time}"
                     Format="t"
                     />
             <StackLayout Orientation="Horizontal"/>

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SYL_Mobile.Services
 {
@@ -25,6 +26,7 @@ namespace SYL_Mobile.Services
             string url = "https://syl.azurewebsites.net/seller?name=" + sellerName;
             string response = await client.GetStringAsync(url);
             return int.Parse(response);
+            
         }
 
         public static async Task<bool> AddOrderAsync(FormUrlEncodedContent order)
@@ -32,6 +34,7 @@ namespace SYL_Mobile.Services
             var url = "https://syl.azurewebsites.net/order/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, order);
+           // Debug.WriteLine("Response: "+response);
             return await Task.FromResult(true);
         }
 

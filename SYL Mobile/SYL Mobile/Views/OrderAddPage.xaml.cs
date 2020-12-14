@@ -23,5 +23,9 @@ namespace SYL_Mobile.Views
             _label.Text += product.name;
         }
 
+        //private void _timePicker_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        //{
+        //    BindingContext = new AddOrderViewModel(product, _timePicker);
+        //}
     }
 }

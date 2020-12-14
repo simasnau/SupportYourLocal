@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SYL_Mobile.Views.Reviews" 
+             Title="My reviews"
+             xmlns:local="clr-namespace:SYL_Mobile.ViewModels"  
+             xmlns:model="clr-namespace:SYL_Mobile.Models"  
+             x:Name="BrowseReviews"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <RefreshView x:DataType="local:ReviewViewModel" Command="{Binding LoadReviewsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView x:Name="ReviewsListView"
+                ItemsSource="{Binding Reviews}"
+                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" x:DataType="model:Review">
+                                <Label Text="{Binding username}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                                <Label Text="{Binding rating}" 
+                            LineBreakMode="NoWrap" FontSize="16"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                             />
+                                <Label Text="{Binding text}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                                <Label Text="{Binding sellerName}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

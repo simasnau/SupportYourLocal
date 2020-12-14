@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.3.0.53" />
     <PackageReference Include="System.Text.Json" Version="5.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />  
@@ -20,6 +21,12 @@
     <Compile Update="Views\OrderAddPage.xaml.cs">
       <DependentUpon>OrderAddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AddReviewPage.xaml.cs">
+      <DependentUpon>AddReviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Reviews.xaml.cs">
+      <DependentUpon>Reviews.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +34,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OrderAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddReviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Reviews.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProductPage.xaml">

@@ -15,7 +15,7 @@ namespace SYL_Mobile.Views
     
     public partial class ItemsPage : ContentPage
     {
-        Func<String, int> c = (x) => { return Convert.ToInt32(x);  };
+        
         ItemsViewModel _viewModel;
         public String returnedProduct="products: "; 
         
@@ -48,8 +48,8 @@ namespace SYL_Mobile.Views
             string action = await DisplayActionSheet("Sort By:", "Cancel", null, "Name", "Seller Name", "Price", "Distance");
             Debug.WriteLine("Action: " + action);
 
-            var list = new List<Product> ((IEnumerable<Product>)ItemsListView.ItemsSource);
-            var newList=new List<Product>();
+            var list = new List<Product>((IEnumerable<Product>)ItemsListView.ItemsSource);
+            var newList = new List<Product>();
             if (action.Equals("Name")) newList = list.OrderBy(x => x.name).ToList();
             else if (action.Equals("Seller Name")) newList = list.OrderBy(x => x.sellerName).ToList();
             else if (action.Equals("Price")) newList = list.OrderBy(x => x.price).ToList();
@@ -61,5 +61,6 @@ namespace SYL_Mobile.Views
 
 
         }
+        
     }
 }
