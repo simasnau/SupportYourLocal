@@ -13,8 +13,8 @@ namespace SYL_Mobile.Views
         
         public ProductPage(Product product, Position position)
         {
-            InitializeComponent();
             BindingContext = context = new ProductViewModel(product, position);
+            InitializeComponent();
             image.Source = $"https://syl.azurewebsites.net/images/{product.name.ToLower()}";
         }
     }

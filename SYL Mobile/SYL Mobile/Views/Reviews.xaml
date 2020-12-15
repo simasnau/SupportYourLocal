@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SYL_Mobile.Views.Reviews" 
-             Title="My reviews"
+             Title="{Binding sellerName}"
              xmlns:local="clr-namespace:SYL_Mobile.ViewModels"  
              xmlns:model="clr-namespace:SYL_Mobile.Models"  
              x:Name="BrowseReviews"
@@ -10,6 +10,12 @@
     <ContentPage.Content>
         <StackLayout>
 
+            <Button x:Name="reviewButton"
+                BackgroundColor="Green"
+                Text="Rate this seller"
+                Margin="0, 30, 0, 15"
+                HorizontalOptions="Center"
+                Command="{Binding PlaceReviewCommand}"/>
 
             <RefreshView x:DataType="local:ReviewViewModel" Command="{Binding LoadReviewsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                 <CollectionView x:Name="ReviewsListView"
@@ -28,10 +34,6 @@
                                     </rating:SfRating.RatingSettings>
                                 </rating:SfRating>
                                 <Label Text="{Binding text}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                                <Label Text="{Binding sellerName}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />

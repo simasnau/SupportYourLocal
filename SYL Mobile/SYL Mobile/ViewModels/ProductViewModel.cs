@@ -20,6 +20,8 @@ namespace SYL_Mobile.ViewModels
 
         public string sellerName { get; set; }
 
+        public string productName { get; set; }
+
         public double avg;
         public double Avg
         {
@@ -50,9 +52,9 @@ namespace SYL_Mobile.ViewModels
             Price = p.price + " €/kg";
             Distance = p.distance + " km";
             sellerName = p.sellerName;
+            productName = p.name;
 
             PlaceOrderCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(p)));
-            PlaceReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new AddReviewPage (p)));
             CheckReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new Reviews(p)));
 
             var timer = new Timer((e) => UpdateDistance(), null, TimeSpan.Zero, TimeSpan.FromSeconds(5)); 

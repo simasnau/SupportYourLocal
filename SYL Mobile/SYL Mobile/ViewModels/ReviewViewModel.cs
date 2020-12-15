@@ -19,24 +19,26 @@ namespace SYL_Mobile.ViewModels
 
         public ObservableCollection<Review> Reviews { get; set; }
         public Command LoadReviewsCommand { get; }
+        public Command PlaceReviewCommand { get; set; }
 
-        public string url;
+        public string sellerName { get; set; }
 
-        public ReviewViewModel(string url)
+        public ReviewViewModel(string sellerName)
         {
-            this.url = url;
+            this.sellerName = sellerName;
             Reviews = new ObservableCollection<Review>();
             LoadReviewsCommand = new Command(async () => await ExecuteLoadReviewsCommand());
+            PlaceReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new AddReviewPage(sellerName)));
 
         }
 
-        
+
         async Task ExecuteLoadReviewsCommand()
         {
             IsBusy = true;
             try
             {
-                var reviews = await ReviewService.GetReviewsAsync(url, true);
+                var reviews = await ReviewService.GetReviewsAsync(sellerName, true);
                 Reviews.Clear();
                 foreach (var review in reviews) Reviews.Add(review);
 

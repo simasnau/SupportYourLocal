@@ -12,13 +12,13 @@ namespace SYL_Mobile.ViewModels
 {
     class AddReviewViewModel : BaseViewModel
 {
-        public Product product;
+        public string sellerName;
         public double rating;
         public string comment;
 
-        public AddReviewViewModel(Product product)
+        public AddReviewViewModel(string sellerName)
         {
-            this.product = product;
+            this.sellerName = sellerName;
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
@@ -54,7 +54,7 @@ namespace SYL_Mobile.ViewModels
                 new KeyValuePair<string, string>("rating", rating.ToString()),
                 new KeyValuePair<string, string>("text", comment),   
             });
-            await ReviewService.AddReviewAsync(review, product.sellerName);
+            await ReviewService.AddReviewAsync(review, sellerName);
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 

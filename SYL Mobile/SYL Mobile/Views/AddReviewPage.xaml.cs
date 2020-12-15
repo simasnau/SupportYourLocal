@@ -18,11 +18,11 @@ namespace SYL_Mobile.Views
            
             AddReviewViewModel reviewView;
         
-        public AddReviewPage(Product product)
+        public AddReviewPage(string sellerName)
         {
-            BindingContext = reviewView = new AddReviewViewModel(product);
+            BindingContext = reviewView = new AddReviewViewModel(sellerName);
             InitializeComponent();
-            _label.Text += product.sellerName;
+            _label.Text += sellerName;
         
         }
 
