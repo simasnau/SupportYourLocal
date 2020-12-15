@@ -10,15 +10,10 @@ namespace SYL_Mobile.Views
     public partial class ProductPage : ContentPage
     {
         ProductViewModel context;
-        public string sellerio ;
-        public ProductPage()
-        {
-            InitializeComponent();
-        }
+        
         public ProductPage(Product product, Position position)
         {
             InitializeComponent();
-            sellerio = product.sellerName;
             BindingContext = context = new ProductViewModel(product, position);
             image.Source = $"https://syl.azurewebsites.net/images/{product.name.ToLower()}";
         }

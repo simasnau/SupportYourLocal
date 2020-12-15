@@ -19,29 +19,30 @@ namespace SYL_Mobile.Services
             var reviewList = JsonSerializer.Deserialize<List<Review>>(response);
             return reviewList;
         }
-
-        //public static async Task<int> getSellerId(String sellerName)
-        //{
-        //    HttpClient client = new HttpClient();
-        //    string url = "https://syl.azurewebsites.net/seller?name=" + sellerName;
-        //    string response = await client.GetStringAsync(url);
-        //    return int.Parse(response);
-        //}
+        public static async Task<Double> loadAvgReview(string adress)
+        {
+            HttpClient client = new HttpClient();
+            string url = "https://syl.azurewebsites.net/ratings/" + adress + "/avg";
+            string response = await client.GetStringAsync(url);
+            return Convert.ToDouble(response);
+        }
+        
 
         public static async Task<bool> AddReviewAsync(FormUrlEncodedContent review, String sellerName)
         {
             var url = "https://syl.azurewebsites.net/ratings/" + sellerName + "/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, review);
-            Debug.WriteLine("responsas" + response);
-            
-            Debug.WriteLine("urlas" + url);
             return await Task.FromResult(true);
         }
 
         public static async Task<IEnumerable<Review>> GetReviewsAsync(string url, bool forceRefresh = false )
         {
             return await loadReviews(url);
+        }
+        public static async Task<Double> GetAvgReviewAsync(string url, bool forceRefresh = false)
+        {
+            return await loadAvgReview(url);
         }
     }
 }

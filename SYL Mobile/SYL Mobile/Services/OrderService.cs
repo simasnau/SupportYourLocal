@@ -34,7 +34,6 @@ namespace SYL_Mobile.Services
             var url = "https://syl.azurewebsites.net/order/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, order);
-           // Debug.WriteLine("Response: "+response);
             return await Task.FromResult(true);
         }
 

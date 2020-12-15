@@ -48,7 +48,7 @@ namespace SYL_Mobile.Views
             string action = await DisplayActionSheet("Sort By:", "Cancel", null, "Name", "Seller Name", "Price", "Distance");
             Debug.WriteLine("Action: " + action);
 
-            var list = new List<Product>((IEnumerable<Product>)ItemsListView.ItemsSource);
+            var list = new List<Product> ((IEnumerable<Product>)ItemsListView.ItemsSource);
             var newList = new List<Product>();
             if (action.Equals("Name")) newList = list.OrderBy(x => x.name).ToList();
             else if (action.Equals("Seller Name")) newList = list.OrderBy(x => x.sellerName).ToList();

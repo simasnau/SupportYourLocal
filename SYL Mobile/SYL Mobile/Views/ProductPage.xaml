@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SYL_Mobile.Views.ProductPage">
+             x:Class="SYL_Mobile.Views.ProductPage"
+             xmlns:local="clr-namespace:SYL_Mobile.ViewModels"
+             xmlns:model="clr-namespace:SYL_Mobile.Models"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms">
     <ContentPage.Content>
         <StackLayout>
 
@@ -28,18 +31,29 @@
                    HeightRequest="1"
                    Color="LightGray"/>
             
-
+            
             <StackLayout Orientation="Horizontal">
 
-                <Label x:Name="selleris" Text="{Binding sellerName}"
+                <Label Text="{Binding sellerName}"
                        FontAttributes="Bold"/>
 
-                <Label Text="Here should be seller rating"
-                       HorizontalOptions="FillAndExpand"
-                       HorizontalTextAlignment="End"/>
+
+
+
+
+
+
+                
+                    <rating:SfRating x:Name="rating" Value="{Binding Avg}" Precision="Exact" ReadOnly="True" ItemSize="16" />
+                
+                <Label x:Name="reitings" Text="{Binding Avg}"/>
+
+
+
 
 
             </StackLayout>
+            
 
             <Button x:Name="orderButton"
                 BackgroundColor="Green"

@@ -15,23 +15,22 @@ namespace SYL_Mobile.ViewModels
     class ReviewViewModel : BaseViewModel
 {
         private Lazy<Review> _selectedReview;
-        ProductPage a = new ProductPage();
-        public string sellername ;
-        
-        public ObservableCollection<Review> Reviews { get; set; }
 
+
+        public ObservableCollection<Review> Reviews { get; set; }
         public Command LoadReviewsCommand { get; }
+
         public string url;
 
         public ReviewViewModel(string url)
         {
             this.url = url;
-            
             Reviews = new ObservableCollection<Review>();
             LoadReviewsCommand = new Command(async () => await ExecuteLoadReviewsCommand());
+
         }
 
-
+        
         async Task ExecuteLoadReviewsCommand()
         {
             IsBusy = true;
@@ -51,6 +50,7 @@ namespace SYL_Mobile.ViewModels
                 IsBusy = false;
             }
         }
+        
 
         public void OnAppearing()
         {

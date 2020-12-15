@@ -10,5 +10,6 @@ namespace SYL_Mobile.Models
         public double rating { get; set; }
         public string text { get; set; }
         public string sellerName { get; set; }
+        public double avgRating { get; set; }
     }
 }
