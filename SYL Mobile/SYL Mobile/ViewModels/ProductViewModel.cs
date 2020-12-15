@@ -20,15 +20,18 @@ namespace SYL_Mobile.ViewModels
 
         public string sellerName { get; set; }
 
-        public double Avg { get; set; } = 3.5;
+        public double avg;
+        public double Avg
+        {
+            get { return avg; }
+            set { SetProperty(ref avg, value); }
+        }
 
         private string distance;
         public string Distance {
             get { return distance; }
             set { SetProperty(ref distance, value); }
         }
-
-        public string url= "Preriju ukis";
 
         public Position position { get; set; }
 
@@ -42,52 +45,23 @@ namespace SYL_Mobile.ViewModels
 
         public ProductViewModel(Product p, Position pos)
         {
+            GetAvgReview(p.sellerName);
             position = pos;
             Price = p.price + " €/kg";
             Distance = p.distance + " km";
             sellerName = p.sellerName;
-            url = p.sellerName;
-            GetAvgReview();
 
-            ShowAvgRating = new Command(async () => await ExecuteLoadAvgReviewCommand());
             PlaceOrderCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new OrderAddPage(p)));
             PlaceReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new AddReviewPage (p)));
             CheckReviewCommand = new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new Reviews(p)));
 
             var timer = new Timer((e) => UpdateDistance(), null, TimeSpan.Zero, TimeSpan.FromSeconds(5)); 
-            Debug.WriteLine("avgas = " + Avg);
         }
-        public async void GetAvgReview( )
+        async void GetAvgReview(string url)
         {
-           // Debug.WriteLine("nusv " + (await ReviewService.loadAvgReview(url)));
-            //Avg = GetAvg();
             Avg = await ReviewService.loadAvgReview(url);
         }
-
-        async Task<double> GetAvg(string seller)
-        {
-            
-            //Avg = await ReviewService.loadAvgReview(url);
-            return ReviewService.loadAvgReview(seller).Result;
-        }
-        async Task ExecuteLoadAvgReviewCommand()
-        {
-            IsBusy = true;
-            try
-            {
-                Avg = await ReviewService.loadAvgReview(url);
-                
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
+        
         async void UpdateDistance()
         {
             try
