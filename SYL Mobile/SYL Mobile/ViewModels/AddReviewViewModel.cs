@@ -25,7 +25,6 @@ namespace SYL_Mobile.ViewModels
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
-
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(comment)
@@ -49,15 +48,13 @@ namespace SYL_Mobile.ViewModels
 
         private async void OnSave()
         {
-            /*var review = new FormUrlEncodedContent(new[]
+            var review = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("username", "Lukas"),
-                new KeyValuePair<string, string>("rating", rating),
+                new KeyValuePair<string, string>("rating", rating.ToString()),
                 new KeyValuePair<string, string>("text", comment),   
             });
-            await ReviewService.AddReviewAsync(review, product.sellerName);*/
-
-            Debug.WriteLine($"Rating:{rating}");
+            await ReviewService.AddReviewAsync(review, product.sellerName);
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
