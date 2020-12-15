@@ -13,7 +13,11 @@
             <StackLayout Orientation="Horizontal"/>
             <Label Text="Choose a rating:" FontSize="Large"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
-                <rating:SfRating x:Name="rating" PropertyChanged="rating_PropertyChanged"  Precision="Standard" />
+                <rating:SfRating x:Name="rating" PropertyChanged="rating_PropertyChanged"  Precision="Standard">
+                    <rating:SfRating.RatingSettings>
+                        <rating:SfRatingSettings RatedStroke="Black" RatedFill="Yellow"/>
+                    </rating:SfRating.RatingSettings>
+                </rating:SfRating>
             </StackLayout>
 
             <Label Text="Leave your comment here:" FontSize="Large" />

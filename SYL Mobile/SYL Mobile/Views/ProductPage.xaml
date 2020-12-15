@@ -34,23 +34,16 @@
             
             <StackLayout Orientation="Horizontal">
 
-                <Label Text="{Binding sellerName}"
-                       FontAttributes="Bold"/>
+                <Label Text="{Binding sellerName}" FontAttributes="Bold"/>
 
+                <rating:SfRating x:Name="rating" Value="{Binding Avg}" Precision="Exact" ReadOnly="True" ItemSize="16" >
+                    <rating:SfRating.RatingSettings>
+                        <rating:SfRatingSettings RatedFill="Yellow" RatedStroke="Black"/>
+                        
+                    </rating:SfRating.RatingSettings>
+                </rating:SfRating>
 
-
-
-
-
-
-                
-                    <rating:SfRating x:Name="rating" Value="{Binding Avg}" Precision="Exact" ReadOnly="True" ItemSize="16" />
-                
-                <Label x:Name="reitings" Text="{Binding Avg}"/>
-
-
-
-
+                <Label x:Name="ratingavg" Text="{Binding Avg}"/>
 
             </StackLayout>
             

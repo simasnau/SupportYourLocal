@@ -22,7 +22,11 @@
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                                <rating:SfRating x:Name="rating" ReadOnly="True" ItemSize="16" Value="{Binding rating}"/>
+                                <rating:SfRating x:Name="rating" ReadOnly="True" ItemSize="16" Value="{Binding rating}">
+                                    <rating:SfRating.RatingSettings>
+                                        <rating:SfRatingSettings RatedStroke="Black" RatedFill="Yellow"/>
+                                    </rating:SfRating.RatingSettings>
+                                </rating:SfRating>
                                 <Label Text="{Binding text}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"

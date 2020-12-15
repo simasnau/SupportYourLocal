@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,30 +13,22 @@ using Xamarin.Forms.Xaml;
 namespace SYL_Mobile.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class AddReviewPage : ContentPage
-{
-        //AddReviewPage a = new AddReviewPage();
-        //Syncfusion.SfRating.XForms.SfRating rate = a.rating;
-        Product product;
-    public AddReviewPage()
-        {
-            InitializeComponent();
-            
-        }
-    public AddReviewPage(Product product)
-
+    public partial class AddReviewPage : ContentPage
     {
-            
+           
+            AddReviewViewModel reviewView;
+        
+        public AddReviewPage(Product product)
+        {
+            BindingContext = reviewView = new AddReviewViewModel(product);
             InitializeComponent();
-            this.product = product;
-            BindingContext = new AddReviewViewModel(product, rating.Value.ToString(), _entry.Text);
             _label.Text += product.sellerName;
         
-    }
+        }
 
         private void rating_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            BindingContext = new AddReviewViewModel(product, rating.Value.ToString(), _entry.Text);
+            reviewView.rating=rating.Value;
         }
     }
 }
