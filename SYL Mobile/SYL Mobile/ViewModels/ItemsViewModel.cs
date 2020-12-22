@@ -71,6 +71,7 @@ namespace SYL_Mobile.ViewModels
             {
                 products = await ProductService.GetProductsAsync(true);
                 List<string> adressList = products.Select(x => x.adress).Distinct().ToList();
+
                 adressCoordinates.Clear();
                 foreach (var adress in adressList) adressCoordinates.Add(adress, await MapService.getCoordinates(adress));
 

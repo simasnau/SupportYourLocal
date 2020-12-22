@@ -6,32 +6,29 @@ using SYL_Mobile.Services;
 using Xamarin.Forms;
 using System.Net.Http;
 using System.Diagnostics;
+using Syncfusion.SfRating.XForms;
 
 namespace SYL_Mobile.ViewModels
 {
     class AddReviewViewModel : BaseViewModel
 {
-        public Product product;
-        public String rating;
-        public String comment;
-        public TimeSpan Time { get; set; }
+        public string sellerName;
+        public double rating;
+        public string comment;
 
-        public AddReviewViewModel(Product product, String rating, String comment)
+        public AddReviewViewModel(string sellerName)
         {
-            this.product = product;
-            this.rating = rating;
-            this.comment = comment;
+            this.sellerName = sellerName;
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
-
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(comment)
-                && rating != "0";
+                && rating != 0;
         }
 
         public string Text
@@ -54,12 +51,10 @@ namespace SYL_Mobile.ViewModels
             var review = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("username", "Lukas"),
-                new KeyValuePair<string, string>("rating", rating),
+                new KeyValuePair<string, string>("rating", rating.ToString()),
                 new KeyValuePair<string, string>("text", comment),   
             });
-            Debug.WriteLine("username" + " Lukas"+" rating "+ rating +" text "+ comment +" sellerName "+ product.sellerName);
-            await ReviewService.AddReviewAsync(review, product.sellerName);
-
+            await ReviewService.AddReviewAsync(review, sellerName);
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 

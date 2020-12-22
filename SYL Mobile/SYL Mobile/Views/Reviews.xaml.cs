@@ -17,9 +17,10 @@ public partial class Reviews : ContentPage
         ReviewViewModel _viewModel;
     public Reviews(Product product)
     {
-        InitializeComponent();
         BindingContext = _viewModel = new ReviewViewModel(product.sellerName);
-        }
+        InitializeComponent();
+    }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
