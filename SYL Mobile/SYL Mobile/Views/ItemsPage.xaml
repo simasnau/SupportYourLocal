@@ -17,6 +17,7 @@
         
        
     </ContentPage.ToolbarItems>
+   
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
@@ -35,27 +36,61 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding name}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
+                            <Label x:Name="fago"/>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding name}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                                FontAttributes="Bold" />
+                                <Label Text="              "
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13"
+                                FontAttributes="Bold"/>
+                                <Label Text="{Binding price}"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="EndAndExpand"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="16" 
+                                FontAttributes="Bold"/>
+                                <Label Text="€/kg"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="16"
+                                FontAttributes="Bold"/>
+                            </StackLayout>
                             <Label Text="{Binding sellerName}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                            <Label Text="{Binding adress}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                            <Label Text="{Binding price}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                            <Label Text="{Binding distance}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                                                        
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding adress}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                <Label Text="Distance: "
+                                LineBreakMode="NoWrap"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13"
+                                FontAttributes="Bold"/>
+                                <Label Text="{Binding distance}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" 
+                                FontAttributes="Bold"/>
+                                <Label Text="km"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13"
+                                FontAttributes="Bold"/>
+                            </StackLayout>                        
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

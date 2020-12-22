@@ -22,6 +22,7 @@ namespace SYL_Mobile.Views
         public ItemsPage()
         {
             InitializeComponent();
+            
             BindingContext = _viewModel = new ItemsViewModel();
         }
 

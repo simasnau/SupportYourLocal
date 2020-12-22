@@ -28,8 +28,7 @@ namespace SYL_Mobile.ViewModels
             set { SetProperty(ref distance, value); }
         }
 
-        public string url= "Preriju ukis";
-
+        public string url;
         public Position position { get; set; }
 
         public Command PlaceOrderCommand { get; set; }
@@ -59,16 +58,15 @@ namespace SYL_Mobile.ViewModels
         }
         public async void GetAvgReview( )
         {
-           // Debug.WriteLine("nusv " + (await ReviewService.loadAvgReview(url)));
-            //Avg = GetAvg();
+           
             Avg = await ReviewService.loadAvgReview(url);
         }
 
-        async Task<double> GetAvg(string seller)
+        async Task<double> GetAvg()
         {
             
             //Avg = await ReviewService.loadAvgReview(url);
-            return ReviewService.loadAvgReview(seller).Result;
+            return await ReviewService.loadAvgReview(url);
         }
         async Task ExecuteLoadAvgReviewCommand()
         {

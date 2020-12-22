@@ -23,22 +23,50 @@
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:Order">
                             <Label Text="{Binding name}" 
+                            FontAttributes="Bold"
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                            <Label Text="{Binding time}" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Pickup time: "
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
+                                <Label Text="{Binding time}" 
+                            FontAttributes="Bold"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                            <Label Text="Amount: "
+                                LineBreakMode="NoWrap"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13"
+                                />
                             <Label Text="{Binding quantity}" 
                             LineBreakMode="NoWrap"
+                            FontAttributes="Bold"       
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                            <Label Text="{Binding adress}" 
+                            <Label Text=" kg"
+                            FontAttributes="Bold"       
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Location: "         
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                                <Label Text="{Binding adress}" 
+                            LineBreakMode="NoWrap"
+                            FontAttributes="Bold"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                            </StackLayout>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
