@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using SYL.Mobile.Services;
 using SYL_Mobile.Models;
 
 namespace SYL_Mobile.Services
@@ -15,7 +16,7 @@ namespace SYL_Mobile.Services
         public static async Task<IEnumerable<Product>> loadProducts()
         {
             HttpClient client = new HttpClient();
-            string url = "https://syl.azurewebsites.net/product";
+            string url = "http://"+Secrets.IP+"/product";
             string response = await client.GetStringAsync(url);
             var productList= JsonSerializer.Deserialize<List<Product>>(response);
             return productList;
@@ -23,7 +24,7 @@ namespace SYL_Mobile.Services
         
         public static async Task<bool> AddProductAsync(FormUrlEncodedContent product)
         {
-            var url = "https://syl.azurewebsites.net/product/add";
+            var url = "http://"+Secrets.IP+"/product/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, product);
 

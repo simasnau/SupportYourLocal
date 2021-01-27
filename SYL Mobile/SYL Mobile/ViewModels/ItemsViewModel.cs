@@ -72,8 +72,10 @@ namespace SYL_Mobile.ViewModels
                 products = await ProductService.GetProductsAsync(true);
                 List<string> adressList = products.Select(x => x.adress).Distinct().ToList();
 
-                adressCoordinates.Clear();
-                foreach (var adress in adressList) adressCoordinates.Add(adress, await MapService.getCoordinates(adress));
+                var adr=new Dictionary<string, Position>();
+                foreach (var adress in adressList) adr.Add(adress, await MapService.getCoordinates(adress));
+                adressCoordinates = adr;
+
 
                 var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
                 location = await Geolocation.GetLocationAsync(request, new CancellationTokenSource().Token);
@@ -92,7 +94,9 @@ namespace SYL_Mobile.ViewModels
             {
                 IsBusy = false;
             }
+
             Products.Clear();
+
             foreach (var product in products) {
                 var pos = adressCoordinates[product.adress];
                 if (location == null) product.distance = 0;

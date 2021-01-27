@@ -14,7 +14,7 @@ namespace SYL.Mobile.Services
         public static async Task<Position > getCoordinates(string adress)
         {
             HttpClient client = new HttpClient();
-            string url = "https://syl.azurewebsites.net/location?adress="+adress;
+            string url = "http://"+Secrets.IP+"/location?adress="+adress;
             string response = await client.GetStringAsync(url);
             response=response.Trim(new char[] { '[', ']'});
             var list = (response.Split(',')).ToList();

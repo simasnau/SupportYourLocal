@@ -1,5 +1,9 @@
-﻿using SYL_Mobile.Models;
+﻿using SYL.Mobile.Services;
+using SYL_Mobile.Models;
 using SYL_Mobile.ViewModels;
+using System.IO;
+using System.Net;
+using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -15,7 +19,9 @@ namespace SYL_Mobile.Views
         {
             BindingContext = context = new ProductViewModel(product, position);
             InitializeComponent();
-            image.Source = $"https://syl.azurewebsites.net/images/{product.name.ToLower()}";
+
+            var path = $"http://{Secrets.IP}/images/{product.name.ToLower()}";
+            image.Source = ImageSource.FromUri(new System.Uri(path));
         }
     }
 }

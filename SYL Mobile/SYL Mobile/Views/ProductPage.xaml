@@ -14,6 +14,7 @@
 
             <Label Text="{Binding productName}"
                     HorizontalOptions="Center"
+                    TextColor="Black"
                     FontSize="30"
                     FontAttributes="Bold"
                     VerticalOptions="Center"/>
@@ -26,15 +27,18 @@
             <StackLayout Orientation="Horizontal" Padding="0,10,0,10">
                 <Label Text="Distance: "
                     FontSize="20"
+                    TextColor="Black"
                     Margin="10,0,0,0"
                     VerticalOptions="CenterAndExpand" />
 
                 <Label Text="{Binding Distance}"
                        FontSize="20"
+                       TextColor="Black"
                        VerticalOptions="CenterAndExpand"/>
 
                 <Label x:Name="priceLabel" 
                     Text="{Binding Price}"
+                    TextColor="Black"
                     FontAttributes="Bold"
                     Margin="0, 0, 30, 0"
                     FontSize="20"
@@ -54,7 +58,7 @@
                     <TapGestureRecognizer Command="{Binding CheckReviewCommand}" />
                 </StackLayout.GestureRecognizers>
 
-                <Label Text="{Binding sellerName}" FontAttributes="Bold" FontSize="20" Margin="10,0,0,0" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding sellerName}" FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="10,0,0,0" HorizontalOptions="StartAndExpand"/>
 
 
                 <ImageButton Source="rating.png" HorizontalOptions="Center" VerticalOptions="Center" IsOpaque="False" Scale="0.75"  Command="{Binding CheckReviewCommand}"/>
@@ -75,6 +79,7 @@
                 Text="Reserve for pick-up"
                 HorizontalOptions="Center"
                 Margin="50"
+                CornerRadius="10"
                 Command="{Binding PlaceOrderCommand}"/>
 
 

@@ -9,6 +9,7 @@
 *.user
 *.sln.docstates
 *.userprefs
+Secrets.cs
 
 # ignore Xamarin.Android Resource.Designer.cs files
 **/*.Droid/**/[Rr]esource.[Dd]esigner.cs

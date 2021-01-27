@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using SYL.Mobile.Services;
 
 namespace SYL_Mobile.Services
 {
@@ -14,7 +15,7 @@ namespace SYL_Mobile.Services
         public static async Task<IEnumerable<Order>> loadOrders()
         {
             HttpClient client = new HttpClient();
-            string url = "https://syl.azurewebsites.net/order/4";
+            string url = "http://"+Secrets.IP+"/order/4";
             string response = await client.GetStringAsync(url);
             var orderList = JsonSerializer.Deserialize<List<Order>>(response);
             return orderList;
@@ -23,7 +24,7 @@ namespace SYL_Mobile.Services
         public static async Task<int> getSellerId(String sellerName)
         {
             HttpClient client = new HttpClient();
-            string url = "https://syl.azurewebsites.net/seller?name=" + sellerName;
+            string url = "http://"+Secrets.IP+"/seller?name=" + sellerName;
             string response = await client.GetStringAsync(url);
             return int.Parse(response);
             
@@ -31,7 +32,7 @@ namespace SYL_Mobile.Services
 
         public static async Task<bool> AddOrderAsync(FormUrlEncodedContent order)
         {
-            var url = "https://syl.azurewebsites.net/order/add";
+            var url = "http://"+Secrets.IP+"/order/add";
             var client = new HttpClient();
             var response = await client.PostAsync(url, order);
             return await Task.FromResult(true);
