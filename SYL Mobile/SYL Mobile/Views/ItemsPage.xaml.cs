@@ -22,14 +22,19 @@ namespace SYL_Mobile.Views
         public ItemsPage()
         {
             InitializeComponent();
-            
+
             BindingContext = _viewModel = new ItemsViewModel();
+
+            
+
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+            
+
         }
 
         private void searchBarTextChanged(object sender, TextChangedEventArgs e)

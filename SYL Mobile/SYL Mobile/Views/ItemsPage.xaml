@@ -31,11 +31,13 @@
                 ItemsSource="{Binding Products}"
                 SelectionMode="Single"
                 SelectedItem="{Binding SelectedProduct}"
-                SelectionChangedCommand="{Binding ItemTapped}">
+                SelectionChangedCommand="{Binding ItemTapped}"
+                ItemSizingStrategy="MeasureFirstItem"            
+                            >
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10,15,10,15" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout Padding="10,15,10,15" Orientation="Horizontal" HorizontalOptions="FillAndExpand" x:Name="Itemlayout" BackgroundColor="{Binding backgroundColor}">
 
                             <Image x:Name="image" Aspect="AspectFill" WidthRequest="50" HeightRequest="30" Source="{Binding imagePath}"/>
 

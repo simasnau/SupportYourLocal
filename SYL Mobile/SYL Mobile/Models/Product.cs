@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace SYL_Mobile.Models
 {
@@ -13,6 +14,8 @@ namespace SYL_Mobile.Models
         public double distance { get; set; }
 
         public string imagePath { get; set; }
+
+        public Color backgroundColor { get; set; }
 
     }
 }

@@ -66,10 +66,10 @@ namespace SYL_Mobile.ViewModels
         {
             IsBusy = true;
             Location location;
-            IEnumerable<Product> products=new List<Product>();
+            List<Product> products=new List<Product>();
             try
             {
-                products = await ProductService.GetProductsAsync(true);
+                products = (List<Product>)await ProductService.GetProductsAsync(true);
                 List<string> adressList = products.Select(x => x.adress).Distinct().ToList();
 
                 var adr=new Dictionary<string, Position>();
@@ -97,15 +97,22 @@ namespace SYL_Mobile.ViewModels
 
             Products.Clear();
 
-            foreach (var product in products) {
+
+            for (int i = 0; i < products.Count(); i++)
+            {
+                var product = products[i];
+
                 var pos = adressCoordinates[product.adress];
                 if (location == null) product.distance = 0;
-                else product.distance = Math.Round(Distance.BetweenPositions(pos, new Position(location.Latitude, location.Longitude)).Kilometers,2);
+                else product.distance = Math.Round(Distance.BetweenPositions(pos, new Position(location.Latitude, location.Longitude)).Kilometers, 2);
                 product.imagePath = $"http://{Secrets.IP}/images/{product.name.ToLower()}";
 
-                Products.Add(product);
-            }
+                if (i % 2 == 0) product.backgroundColor = Color.FromHex("#FFFFFF");
+                else product.backgroundColor = Color.FromHex("#F0F0F0");
 
+                Products.Add(product);
+
+            }
             
         }
 
