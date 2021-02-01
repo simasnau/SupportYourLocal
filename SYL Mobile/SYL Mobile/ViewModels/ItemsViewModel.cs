@@ -101,6 +101,8 @@ namespace SYL_Mobile.ViewModels
                 var pos = adressCoordinates[product.adress];
                 if (location == null) product.distance = 0;
                 else product.distance = Math.Round(Distance.BetweenPositions(pos, new Position(location.Latitude, location.Longitude)).Kilometers,2);
+                product.imagePath = $"http://{Secrets.IP}/images/{product.name.ToLower()}";
+
                 Products.Add(product);
             }
 

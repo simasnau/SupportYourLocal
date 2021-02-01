@@ -12,5 +12,7 @@ namespace SYL_Mobile.Models
 
         public double distance { get; set; }
 
+        public string imagePath { get; set; }
+
     }
 }
